@@ -10,8 +10,8 @@ This project requires the following Python packages to run:
 1. **Clone the repository (if applicable):**
 
    ```bash
-   git clone <repository-url>
-   cd <project-directory>
+   git clone https://github.com/vaccarieli/IN1M8L3.git
+   cd IN1M8L3
    ```
 
 2. **Install the required packages:**
