@@ -3,25 +3,34 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import os
 
+file_template_data = os.getcwd() + "/template info - SHORT - Individual.txt"
+
+def parse_file_data():
+    with open(file_template_data, "r", encoding="utf-8") as file:
+        return [i.strip().split(":")[1].strip() for i in file.readlines()]
+
+DATA = parse_file_data()
+
 # Client Information
-CLIENT_NAME = input("Enter the client's name: ")
-WOMAN_MAN = input("Enter client's gender (woman/man): ")
-IS_YOUNG = input("Is the client young? (yes/no): ")
+CLIENT_NAME = DATA[0]
+WOMAN_MAN = DATA[1]
+IS_YOUNG = DATA[2]
+IS_YOUNG = "young" if IS_YOUNG == "yes" else ""
 
 # Insured Information
-INSURED_NAME = input("Enter the insured person's name: ")
-INSURED_SEX = input("Enter insured person's gender (woman/man): ")
+INSURED_NAME = DATA[3]
+INSURED_SEX = DATA[4]
 INSURED_TITLE = "Mr. " if INSURED_SEX.lower() == "man" else "Mrs. "
 
 # Contact and Claim Information
-VIA_TYPE = input("Enter the contact method (e.g., Email: test@mail.com): ")
-INSURANCE_NAME = input("Enter the insurance company name: ")
-CLAIM_NUMBER = input("Enter the claim number: ")
-DATE_OF_LOSS = input("Enter the date of loss (mm/dd/yyyy): ")
-CLAIM_RESPONSIBLE_RECEIVER = input("Enter the claim responsible receiver's name: ")
+VIA_TYPE = DATA[5]
+INSURANCE_NAME = DATA[6]
+CLAIM_NUMBER = DATA[7]
+DATE_OF_LOSS = DATA[8]
+CLAIM_RESPONSIBLE_RECEIVER = DATA[9]
 
 # California Civil Code Text
-CALIFORNIA_CVC_TEXT = input("Enter the California Civil Code text: ")
+CALIFORNIA_CVC_TEXT = DATA[10]
 
 INSURANCE_INIT = INSURANCE_NAME.split(" ")[0]
 INSURANCE_NAME_CAP = INSURANCE_NAME.upper()
@@ -93,7 +102,7 @@ def edit_docx_preserve_format(doc):
         # Edit document content
         for paragraph in doc.paragraphs:
             for run in paragraph.runs:  # Access individual formatted text segments (runs)
-                if CLIENT_DATA.get(run.text, None):
+                if CLIENT_DATA.get(run.text) is not None:
                     run.text = run.text.replace(run.text, CLIENT_DATA[run.text])
 
         # Edit headers

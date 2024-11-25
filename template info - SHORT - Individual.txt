@@ -1,0 +1,11 @@
+Client's Name: Elio Gonzalez
+Client's Gender (woman/man): man
+Is Client Young? (yes/no): yes
+Insured's Name: Gaby Espino
+Insured's Gender (woman/man): woman
+Insurance Contact (e.g., Email: test@mail.com): Email: test@mail.com
+Insurance Company Name: Geico Insurance Company
+Claim Number: CL545454
+Data Loss (mm/dd/yyyy): 08/08/2024
+Claim Processor's Name: Gabriel Marquez
+CVC Text: 220202. Shall be
