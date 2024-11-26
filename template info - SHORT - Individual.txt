@@ -1,11 +1,11 @@
-Client's Name: Elio Gonzalez
-Client's Gender (woman/man): man
-Is Client Young? (yes/no): yes
-Insured's Name: Gaby Espino
-Insured's Gender (woman/man): woman
-Insurance Contact (e.g., Email: test@mail.com): Email: test@mail.com
-Insurance Company Name: Geico Insurance Company
-Claim Number: CL545454
-Data Loss (mm/dd/yyyy): 08/08/2024
-Claim Processor's Name: Gabriel Marquez
-CVC Text: 220202. Shall be
+Client's Name: casey paust 
+Client's Gender (woman/man): woman
+Is Client Young? (yes/no):  no
+Insured's Name: gregorio valdovinos garcia
+Insured's Gender (woman/man): man
+Insurance Contact Email: NOEMAILFOUND
+Insurance Company Name: National General Insurance
+Claim Number: 230719280
+Data Loss (mm/dd/yyyy): 08/25/2023
+Claim Processor's Name: Sandra Miranda
+CVC Text: California Vehicle Code 22106. "No person shall start a vehicle stopped, standing, or parked on a highway, nor shall any person back a vehicle on a highway until such movement can be made with reasonable safety.", California Vehicle Code 21717. "Whenever it is necessary for the driver of a motor vehicle to cross a bicycle lane that is adjacent to his lane of travel to make a turn, the driver shall drive the motor vehicle into the bicycle lane prior to making the turn and shall make the turn pursuant to Section 22100.", California Vehicle Code 16025 "(1) Driver’s name and current residence address, driver’s license number, vehicle identification number, and current residence address of registered owner."
