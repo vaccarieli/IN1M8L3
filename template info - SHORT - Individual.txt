@@ -1,11 +1,11 @@
-Client's Name: casey paust 
-Client's Gender (woman/man): woman
+Client's Name: John Mosqueda Sr 
+Client's Gender (woman/man): man
 Is Client Young? (yes/no):  no
-Insured's Name: gregorio valdovinos garcia
+Insured's Name: rodney blowers
 Insured's Gender (woman/man): man
-Insurance Contact Email: NOEMAILFOUND
-Insurance Company Name: National General Insurance
-Claim Number: 230719280
-Data Loss (mm/dd/yyyy): 08/25/2023
-Claim Processor's Name: Sandra Miranda
-CVC Text: California Vehicle Code 22106. "No person shall start a vehicle stopped, standing, or parked on a highway, nor shall any person back a vehicle on a highway until such movement can be made with reasonable safety.", California Vehicle Code 21717. "Whenever it is necessary for the driver of a motor vehicle to cross a bicycle lane that is adjacent to his lane of travel to make a turn, the driver shall drive the motor vehicle into the bicycle lane prior to making the turn and shall make the turn pursuant to Section 22100.", California Vehicle Code 16025 "(1) Driver’s name and current residence address, driver’s license number, vehicle identification number, and current residence address of registered owner."
+Insurance Contact Email: NoEmail
+Insurance Company Name: Mercury Insurance Company
+Claim Number: CAPA-02199395
+Data Loss (mm/dd/yyyy): 09/05/2023
+Claim Processor's Name: Gregory Hinkle
+CVC Text: California Vehicle Code 22350. "No person shall drive a vehicle upon a highway at a speed greater than is reasonable or prudent having due regard for weather, visibility, the traffic on, and the surface and width of, the highway, and in no event at a speed which endangers the safety of persons or property.", California Vehicle Code 21703. "The driver of a motor vehicle shall not follow another vehicle more closely than is reasonable and prudent, having due regard for the speed of such vehicle and the traffic upon, and the condition of, the roadway.", California Vehicle Code 16025 "(1) Driver’s name and current residence address, driver’s license number, vehicle identification number, and current residence address of registered owner."

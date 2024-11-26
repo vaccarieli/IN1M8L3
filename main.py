@@ -13,7 +13,7 @@ DATA = parse_file_data()
 
 # Client Information
 CLIENT_NAME = DATA[0]
-WOMAN_MAN = DATA[1]
+CLIENT_SEX = DATA[1]
 IS_YOUNG = DATA[2]
 IS_YOUNG = "young" if IS_YOUNG == "yes" else ""
 
@@ -35,19 +35,31 @@ CALIFORNIA_CVC_TEXT = DATA[10]
 INSURANCE_INIT = INSURANCE_NAME.split(" ")[0]
 INSURANCE_NAME_CAP = INSURANCE_NAME.upper()
 
-# Automatically set gender-specific variables based on WOMAN_MAN
-if WOMAN_MAN == "woman":
+# Automatically set gender-specific variables based on CLIENT_SEX
+if CLIENT_SEX == "woman":
     HE_SHE_CLIENT = "she"
     HER_HIM_CLIENT = "her"
     HER_HIS_CLIENT = "her"
     HER_HIS_CLIENT_CAP = "HER"
     CLIENT_TITLE = "Ms. " if IS_YOUNG else "Mrs. "
-else:  # WOMAN_MAN == "man"
+else:  # CLIENT_SEX == "man"
     HE_SHE_CLIENT = "he"
     HER_HIM_CLIENT = "him"
     HER_HIS_CLIENT = "his"
     HER_HIS_CLIENT_CAP = "HIS"
     CLIENT_TITLE = "Mr. "
+    
+    
+# Automatically set gender-specific variables based on INSURED_SEX
+if INSURED_SEX == "woman":
+    HE_SHE_INSURED = "she"
+
+else:  # INSURED_SEX == "man"
+    HE_SHE_INSURED = "he"
+
+
+    
+    
 
 # Format the date as MM/DD/YYYY
 SETTLEMENT_EXP_DATE = (datetime.now() + relativedelta(months=1)).strftime("%m/%d/%Y")
@@ -57,18 +69,19 @@ CLIENT_NAME_EACH_CAP = CLIENT_NAME.title()
 MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_NAME_EACH_CAP.split(" ")[-1]
 INSURED_NAME_ALL_CAP = INSURED_NAME.upper()
 INSURED_NAME_EACH_CAP = INSURED_NAME.title()
-MR_MRS_INSURED_NAME_EACH_CAP = INSURED_TITLE.upper() + INSURED_NAME_ALL_CAP
+MR_MRS_INSURED_NAME_EACH_CAP = (INSURED_TITLE + INSURED_NAME_ALL_CAP).title()
 MR_OR_MRS_INSURED_NAME_ALL_CAP = MR_MRS_INSURED_NAME_EACH_CAP.upper()
 DATE_OF_LOSS_FORMATTED = datetime.strptime(DATE_OF_LOSS, "%m/%d/%Y").strftime("%B %d, %Y")
 
 # Store variables in a dictionary
 CLIENT_DATA = {
     "CLIENT_NAME": CLIENT_NAME,
-    "WOMAN_MAN": WOMAN_MAN,
+    "CLIENT_SEX": CLIENT_SEX,
     "IS_YOUNG": IS_YOUNG,
     "INSURED_NAME": INSURED_NAME,
     "INSURED_SEX": INSURED_SEX,
     "INSURED_TITLE": INSURED_TITLE,
+    "HE_SHE_INSURED": HE_SHE_INSURED,
     "VIA_TYPE": VIA_TYPE,
     "INSURANCE_NAME": INSURANCE_NAME,
     "CLAIM_NUMBER": CLAIM_NUMBER,
@@ -209,7 +222,7 @@ def edit_bullet_points(doc, section_title, updated_bullets):
 
 # Client data
 # CLIENT_NAME = "nataly l sanchez"
-# WOMAN_MAN = "woman"  # Change to "man" as needed
+# CLIENT_SEX = "woman"  # Change to "man" as needed
 # IS_YOUNG = "young"
 
 # # Insured information
