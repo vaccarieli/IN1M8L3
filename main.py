@@ -8,7 +8,7 @@ file_template_data = os.getcwd() + "/template info - SHORT - Individual.txt"
 def custom_title(text, excluded_words=None):
     """
     Capitalizes the first letter of each word in a string,
-    except for words in the excluded_words list.
+    except for 'and' (case-sensitive) and words in the excluded_words list.
 
     :param text: The input string.
     :param excluded_words: A list of words to exclude from capitalization.
@@ -16,9 +16,12 @@ def custom_title(text, excluded_words=None):
     """
     if excluded_words is None:
         excluded_words = []
-    
+
+    # Create a set of excluded words for O(1) lookup time
+    excluded_words_set = set(excluded_words)
+
     return " ".join(
-        word if word in excluded_words else word.capitalize()
+        word if word.lower() in excluded_words_set else word.capitalize()
         for word in text.split()
     )
 
@@ -116,7 +119,7 @@ else: # more than one client
     MR_MRS_CLIENT_LAST_NAME = ""
     MR_MRS_CLIENT_NAME = ""
 
-    for index, client_name in enumerate(CLIENT_NAME.split("and")):
+    for index, client_name in enumerate(CLIENT_NAME.split(" and ")):
         client_name = client_name.strip()  # Remove extra spaces
 
         # Add " and " if there's already a name
