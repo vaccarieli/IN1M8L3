@@ -5,6 +5,24 @@ import os
 
 file_template_data = os.getcwd() + "/template info - SHORT - Individual.txt"
 
+def custom_title(text, excluded_words=None):
+    """
+    Capitalizes the first letter of each word in a string,
+    except for words in the excluded_words list.
+
+    :param text: The input string.
+    :param excluded_words: A list of words to exclude from capitalization.
+    :return: The formatted string.
+    """
+    if excluded_words is None:
+        excluded_words = []
+    
+    return " ".join(
+        word if word in excluded_words else word.capitalize()
+        for word in text.split()
+    )
+
+
 def parse_file_data():
     with open(file_template_data, "r", encoding="utf-8") as file:
         return [i.strip().split(":")[1].strip() for i in file.readlines()]
@@ -42,26 +60,42 @@ if CLIENT_SEX == "woman":
     HER_HIS_CLIENT = "her"
     HER_HIS_CLIENT_CAP = "HER"
     CLIENT_TITLE = "Ms. " if IS_YOUNG else "Mrs. "
+    HE_SHE_CLIENT_PAGE7 = HE_SHE_CLIENT + " was" 
+
 elif CLIENT_SEX == "man":  # CLIENT_SEX == "man"
     HE_SHE_CLIENT = "he"
     HER_HIM_CLIENT = "him"
     HER_HIS_CLIENT = "his"
     HER_HIS_CLIENT_CAP = "HIS"
     CLIENT_TITLE = "Mr. "
+    HE_SHE_CLIENT_PAGE7 = HE_SHE_CLIENT + " was" 
+
 else:
+    CLIENT_TITLE = []
+    for client_sex in CLIENT_SEX.split(","):
+        if client_sex.strip() == "woman":
+            CLIENT_TITLE.append("Mrs.")
+        else:
+            CLIENT_TITLE.append("Mr.")
+
     HE_SHE_CLIENT = "they"
     HER_HIM_CLIENT = "them"
     HER_HIS_CLIENT = "their"
     HER_HIS_CLIENT_CAP = "THEIR"
-    CLIENT_TITLE = "Mr. "
-    
+
+    # Custom
+    HE_SHE_CLIENT_PAGE7 = HE_SHE_CLIENT + " were" 
     
 # Automatically set gender-specific variables based on INSURED_SEX
 if INSURED_SEX == "woman":
     HE_SHE_INSURED = "she"
+    HER_HIM_INSURED = "her"
+    HER_HIS_INSURED = "her"
 
-else:  # INSURED_SEX == "man"
+elif INSURED_SEX == "man":
     HE_SHE_INSURED = "he"
+    HER_HIM_INSURED = "him"
+    HER_HIS_INSURED = "his"
 
 
 # Format the date as MM/DD/YYYY
@@ -69,7 +103,7 @@ SETTLEMENT_EXP_DATE = (datetime.now() + relativedelta(months=1)).strftime("%m/%d
 SETTLEMENT_EXP_DATE = datetime.strptime(SETTLEMENT_EXP_DATE, "%m/%d/%Y").strftime("%B %d, %Y").upper()
 
 CLIENT_NAME_ALL_CAP = CLIENT_NAME.upper()
-CLIENT_NAME_EACH_CAP = CLIENT_NAME.title()
+CLIENT_NAME_EACH_CAP = custom_title(CLIENT_NAME, ["and"])
 
 if "and" not in CLIENT_NAME:
     CLIENT_LAST_NAME = CLIENT_NAME_EACH_CAP.split(" ")[-1] if CLIENT_NAME_EACH_CAP.split(" ")[-1] not in ["Sr", "Jr"] else CLIENT_NAME_EACH_CAP.split(" ")[-2] + " " +CLIENT_NAME_EACH_CAP.split(" ")[-1]
@@ -77,22 +111,54 @@ if "and" not in CLIENT_NAME:
     MR_MRS_CLIENT_NAME_ALL_CAP = (CLIENT_TITLE + CLIENT_NAME_EACH_CAP).upper()
     MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_LAST_NAME
     
-else:
-    CLIENT_LAST_NAME = ' and '.join([' '.join(i.strip().split(' ')[1:]) for i in CLIENT_NAME_EACH_CAP.split("And")])
-    CLIENT_LAST_NAME = CLIENT_NAME_EACH_CAP.split(" ")[-1] if CLIENT_NAME_EACH_CAP.split(" ")[-1] not in ["Sr", "Jr"] else CLIENT_NAME_EACH_CAP.split(" ")[-2] + " " +CLIENT_NAME_EACH_CAP.split(" ")[-1]
-    MR_MRS_CLIENT_NAME_EACH_CAP = (CLIENT_TITLE + CLIENT_NAME_EACH_CAP).title()
-    MR_MRS_CLIENT_NAME_ALL_CAP = (CLIENT_TITLE + CLIENT_NAME_EACH_CAP).upper()
-    MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_LAST_NAME
-    
-    print(test)
-    
+else: # more than one client 
 
+    MR_MRS_CLIENT_LAST_NAME = ""
+    MR_MRS_CLIENT_NAME = ""
+
+    for index, client_name in enumerate(CLIENT_NAME.split("and")):
+        client_name = client_name.strip()  # Remove extra spaces
+
+        # Add " and " if there's already a name
+        if MR_MRS_CLIENT_LAST_NAME:
+            MR_MRS_CLIENT_LAST_NAME += " and "
+        if MR_MRS_CLIENT_NAME:
+            MR_MRS_CLIENT_NAME += " and "
+
+        # Check for "Sr" or "Jr" in the name
+        if any(title in client_name for title in ["Sr", "Jr"]):
+            # Add full name and last two words for titles
+            MR_MRS_CLIENT_NAME += CLIENT_TITLE[index] + " " + client_name
+            MR_MRS_CLIENT_LAST_NAME += (
+                CLIENT_TITLE[index] + " " + " ".join(client_name.split()[-2:])
+            )
+        else:
+            # Add full name and last word (last name)
+            MR_MRS_CLIENT_NAME += CLIENT_TITLE[index] + " " + client_name
+            MR_MRS_CLIENT_LAST_NAME += CLIENT_TITLE[index] + " " + client_name.split()[-1]
+
+    MR_MRS_CLIENT_NAME_EACH_CAP = custom_title(MR_MRS_CLIENT_NAME, ["and"])
+    MR_MRS_CLIENT_NAME_ALL_CAP = MR_MRS_CLIENT_NAME.upper()
+
+    
 INSURED_NAME_ALL_CAP = INSURED_NAME.upper()
 INSURED_NAME_EACH_CAP = INSURED_NAME.title()
 
 MR_MRS_INSURED_NAME_EACH_CAP = (INSURED_TITLE + INSURED_NAME_ALL_CAP).title()
 MR_OR_MRS_INSURED_NAME_ALL_CAP = MR_MRS_INSURED_NAME_EACH_CAP.upper()
 DATE_OF_LOSS_FORMATTED = datetime.strptime(DATE_OF_LOSS, "%m/%d/%Y").strftime("%B %d, %Y")
+
+if "," in CLIENT_SEX:
+    if "man, man" == CLIENT_SEX:
+        CLIENT_SEX = f"healthy men lose"
+    elif "woman, woman" == CLIENT_SEX:
+        CLIENT_SEX = f"healthy women lose"
+    else:
+        CLIENT_SEX = f"healthy men or women loses"
+else:
+    CLIENT_SEX = f"a healthy {CLIENT_SEX}"
+
+
 
 # Store variables in a dictionary
 CLIENT_DATA = {
@@ -102,6 +168,7 @@ CLIENT_DATA = {
     "INSURED_NAME": INSURED_NAME,
     "INSURED_SEX": INSURED_SEX,
     "INSURED_TITLE": INSURED_TITLE,
+    "HER_HIS_INSURED": HER_HIS_INSURED,
     "HE_SHE_INSURED": HE_SHE_INSURED,
     "VIA_TYPE": VIA_TYPE,
     "INSURANCE_NAME": INSURANCE_NAME,
@@ -111,10 +178,10 @@ CLIENT_DATA = {
     "CALIFORNIA_CVC_TEXT": CALIFORNIA_CVC_TEXT,
     "INSURANCE_INIT": INSURANCE_INIT,
     "HE_SHE_CLIENT": HE_SHE_CLIENT,
+    "HE_SHE_CLIENT_PAGE7": HE_SHE_CLIENT_PAGE7,
     "HER_HIM_CLIENT": HER_HIM_CLIENT,
     "HER_HIS_CLIENT": HER_HIS_CLIENT,
     "HER_HIS_CLIENT_CAP": HER_HIS_CLIENT_CAP,
-    "CLIENT_TITLE": CLIENT_TITLE,
     "MR_MRS_CLIENT_NAME_EACH_CAP": MR_MRS_CLIENT_NAME_EACH_CAP,
     "MR_MRS_CLIENT_NAME_ALL_CAP": MR_MRS_CLIENT_NAME_ALL_CAP,
     "SETTLEMENT_EXP_DATE": SETTLEMENT_EXP_DATE,

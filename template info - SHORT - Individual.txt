@@ -1,8 +1,8 @@
 Client's Name: John Mosqueda Sr and John Mosqueda Jr
-Client's Gender (woman/man/they): they
-Is Client Young? (yes/no):  no
+Client's Gender (woman/man): man, woman
+Is Client Young? (yes/no):  no, yes
 Insured's Name: rodney blowers
-Insured's Gender (woman/man): man
+Insured's Gender (woman/man): woman
 Insurance Contact Email: NoEmail
 Insurance Company Name: Mercury Insurance Company
 Claim Number: CAPA-02199395
