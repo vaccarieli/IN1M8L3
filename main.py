@@ -42,11 +42,17 @@ if CLIENT_SEX == "woman":
     HER_HIS_CLIENT = "her"
     HER_HIS_CLIENT_CAP = "HER"
     CLIENT_TITLE = "Ms. " if IS_YOUNG else "Mrs. "
-else:  # CLIENT_SEX == "man"
+elif CLIENT_SEX == "man":  # CLIENT_SEX == "man"
     HE_SHE_CLIENT = "he"
     HER_HIM_CLIENT = "him"
     HER_HIS_CLIENT = "his"
     HER_HIS_CLIENT_CAP = "HIS"
+    CLIENT_TITLE = "Mr. "
+else:
+    HE_SHE_CLIENT = "they"
+    HER_HIM_CLIENT = "them"
+    HER_HIS_CLIENT = "their"
+    HER_HIS_CLIENT_CAP = "THEIR"
     CLIENT_TITLE = "Mr. "
     
     
@@ -58,17 +64,34 @@ else:  # INSURED_SEX == "man"
     HE_SHE_INSURED = "he"
 
 
-    
-    
-
 # Format the date as MM/DD/YYYY
 SETTLEMENT_EXP_DATE = (datetime.now() + relativedelta(months=1)).strftime("%m/%d/%Y")
 SETTLEMENT_EXP_DATE = datetime.strptime(SETTLEMENT_EXP_DATE, "%m/%d/%Y").strftime("%B %d, %Y").upper()
+
 CLIENT_NAME_ALL_CAP = CLIENT_NAME.upper()
 CLIENT_NAME_EACH_CAP = CLIENT_NAME.title()
-MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_NAME_EACH_CAP.split(" ")[-1]
+
+if "and" not in CLIENT_NAME:
+    CLIENT_LAST_NAME = CLIENT_NAME_EACH_CAP.split(" ")[-1] if CLIENT_NAME_EACH_CAP.split(" ")[-1] not in ["Sr", "Jr"] else CLIENT_NAME_EACH_CAP.split(" ")[-2] + " " +CLIENT_NAME_EACH_CAP.split(" ")[-1]
+    MR_MRS_CLIENT_NAME_EACH_CAP = (CLIENT_TITLE + CLIENT_NAME_EACH_CAP).title()
+    MR_MRS_CLIENT_NAME_ALL_CAP = (CLIENT_TITLE + CLIENT_NAME_EACH_CAP).upper()
+    MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_LAST_NAME
+    
+else:
+    CLIENT_LAST_NAME = CLIENT_NAME_EACH_CAP.split(" ")[-1] if CLIENT_NAME_EACH_CAP.split(" ")[-1] not in ["Sr", "Jr"] else CLIENT_NAME_EACH_CAP.split(" ")[-2] + " " +CLIENT_NAME_EACH_CAP.split(" ")[-1]
+    CLIENT_LAST_NAME = " and ".join([client_name.strip() for client_name in CLIENT_NAME_EACH_CAP.split("And")])
+    CLIENT_LAST_NAME = [i for i in CLIENT_LAST_NAME]
+    MR_MRS_CLIENT_NAME = " and ".join([CLIENT_TITLE + client_name.strip() for client_name in CLIENT_NAME_EACH_CAP.split("And")])
+    MR_MRS_CLIENT_NAME_EACH_CAP = MR_MRS_CLIENT_NAME.title()
+    MR_MRS_CLIENT_NAME_ALL_CAP = MR_MRS_CLIENT_NAME.upper()
+    MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_LAST_NAME
+    
+    print(CLIENT_LAST_NAME)
+    
+
 INSURED_NAME_ALL_CAP = INSURED_NAME.upper()
 INSURED_NAME_EACH_CAP = INSURED_NAME.title()
+
 MR_MRS_INSURED_NAME_EACH_CAP = (INSURED_TITLE + INSURED_NAME_ALL_CAP).title()
 MR_OR_MRS_INSURED_NAME_ALL_CAP = MR_MRS_INSURED_NAME_EACH_CAP.upper()
 DATE_OF_LOSS_FORMATTED = datetime.strptime(DATE_OF_LOSS, "%m/%d/%Y").strftime("%B %d, %Y")
@@ -94,6 +117,8 @@ CLIENT_DATA = {
     "HER_HIS_CLIENT": HER_HIS_CLIENT,
     "HER_HIS_CLIENT_CAP": HER_HIS_CLIENT_CAP,
     "CLIENT_TITLE": CLIENT_TITLE,
+    "MR_MRS_CLIENT_NAME_EACH_CAP": MR_MRS_CLIENT_NAME_EACH_CAP,
+    "MR_MRS_CLIENT_NAME_ALL_CAP": MR_MRS_CLIENT_NAME_ALL_CAP,
     "SETTLEMENT_EXP_DATE": SETTLEMENT_EXP_DATE,
     "CLIENT_NAME_ALL_CAP": CLIENT_NAME_ALL_CAP,
     "CLIENT_NAME_EACH_CAP": CLIENT_NAME_EACH_CAP,
