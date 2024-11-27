@@ -1,6 +1,6 @@
-Client's Name: John Mosqueda
-Client's Gender (woman/man): man
-Is Client Young? (yes/no):  yes
+Client's Name: John Mosqueda Sr and John Mosqueda Jr
+Client's Gender (woman/man): man, man
+Is Client Young? (yes/no):  no
 Insured's Name: rodney blowers
 Insured's Gender (woman/man): man
 Insurance Contact Email: NoEmail
