@@ -156,7 +156,7 @@ if "," in CLIENT_SEX:
     else:
         CLIENT_SEX = f"healthy men or women loses"
 else:
-    CLIENT_SEX = f"a healthy {CLIENT_SEX}"
+    CLIENT_SEX = f"a healthy {CLIENT_SEX} loses"
 
 
 
