@@ -78,15 +78,13 @@ if "and" not in CLIENT_NAME:
     MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_LAST_NAME
     
 else:
+    CLIENT_LAST_NAME = ' and '.join([' '.join(i.strip().split(' ')[1:]) for i in CLIENT_NAME_EACH_CAP.split("And")])
     CLIENT_LAST_NAME = CLIENT_NAME_EACH_CAP.split(" ")[-1] if CLIENT_NAME_EACH_CAP.split(" ")[-1] not in ["Sr", "Jr"] else CLIENT_NAME_EACH_CAP.split(" ")[-2] + " " +CLIENT_NAME_EACH_CAP.split(" ")[-1]
-    CLIENT_LAST_NAME = " and ".join([client_name.strip() for client_name in CLIENT_NAME_EACH_CAP.split("And")])
-    CLIENT_LAST_NAME = [i for i in CLIENT_LAST_NAME]
-    MR_MRS_CLIENT_NAME = " and ".join([CLIENT_TITLE + client_name.strip() for client_name in CLIENT_NAME_EACH_CAP.split("And")])
-    MR_MRS_CLIENT_NAME_EACH_CAP = MR_MRS_CLIENT_NAME.title()
-    MR_MRS_CLIENT_NAME_ALL_CAP = MR_MRS_CLIENT_NAME.upper()
+    MR_MRS_CLIENT_NAME_EACH_CAP = (CLIENT_TITLE + CLIENT_NAME_EACH_CAP).title()
+    MR_MRS_CLIENT_NAME_ALL_CAP = (CLIENT_TITLE + CLIENT_NAME_EACH_CAP).upper()
     MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_LAST_NAME
     
-    print(CLIENT_LAST_NAME)
+    print(test)
     
 
 INSURED_NAME_ALL_CAP = INSURED_NAME.upper()
