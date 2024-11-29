@@ -5,7 +5,7 @@ Insured's Name: dennis martin mignano
 Insured's Gender (woman/man): man
 Insurance Contact Email: myclaim@csaa.com
 Insurance Company Name: CSAA Insurance Group
-Claim Number: 1005-48-1457
+Claim Number: 23-5152082
 Data Loss (mm/dd/yyyy): 11/29/2023
 Claim Processor's Name: brittney gibson
 CVC Text: California Vehicle Code 21703. "The driver of a motor vehicle shall not follow another vehicle more closely than is reasonable and prudent, having due regard for the speed of such vehicle and the traffic upon, and the condition of, the roadway.", 22350. "No person shall drive a vehicle upon a highway at a speed greater than is reasonable or prudent having due regard for weather, visibility, the traffic on, and the surface and width of, the highway, and in no event at a speed which endangers the safety of persons or property."
