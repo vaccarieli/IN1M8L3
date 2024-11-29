@@ -35,12 +35,9 @@ def add_names_to_duplicate_lastnames(client_names, mr_mrs_client_last_name):
     first_names = get_first_names(client_names)
 
     for index in find_element_index(last_names, duplicate_lastname):
-        new_string = ""
-        if index == len(last_names)-1:
-            new_string = "and "
+        last_names[index] = f"{last_names[index]} ({first_names[index]})"
 
-        last_names[index] = f"{new_string}{last_names[index]} ({first_names[index]})"
-
+    last_names[-1] = "and " + last_names[-1]
     return ", ".join(last_names)
 
 def custom_title(text, excluded_words=None):
