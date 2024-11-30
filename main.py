@@ -33,8 +33,7 @@ def check_and_warn_if_file_exists(file_path):
             sys.exit(1)  # Exit with a non-zero status to indicate intentional termination
         else:
             print("File name confirmed. Continuing with the operation. The file will be overwritten.")
-    else:
-        print("The file does not exist. Proceeding to create a new document.")
+
 
 def read_json_file(json_path):
     with open(json_path, "r", encoding="utf-8") as file:
