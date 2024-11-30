@@ -15,12 +15,7 @@ insurance_emails_json = project_path / "Insurance Emails.json"
 template_word_path = project_path / "Template - SHORT - Individual.docx"
 
 def check_and_warn_if_file_exists(file_path):
-    """
-    Checks if a file exists at the given path. If it exists, warns the user and asks for confirmation.
-    Requires the user to input the exact file name for confirmation. Exits the program if confirmation fails.
 
-    :param file_path: Path to the file to check
-    """
     if file_path.exists():
         print(f"WARNING: The file '{file_path}' already exists.")
         print("If you want to overwrite it, please copy and paste the exact file name below:")
@@ -115,14 +110,6 @@ def add_names_to_duplicate_lastnames(client_names, mr_mrs_client_last_name):
     return ", ".join(last_names)
 
 def custom_title(text, excluded_words=None):
-    """
-    Capitalizes the first letter of each word in a string,
-    except for 'and' (case-sensitive) and words in the excluded_words list.
-
-    :param text: The input string.
-    :param excluded_words: A list of words to exclude from capitalization.
-    :return: The formatted string.
-    """
     if excluded_words is None:
         excluded_words = []
 
