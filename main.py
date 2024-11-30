@@ -4,6 +4,7 @@ from dateutil.relativedelta import relativedelta
 import os
 import pathlib
 import json
+import sys
 
 working_directory = pathlib.Path(os.getcwd())
 project_path = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
@@ -12,6 +13,28 @@ file_template_data = working_directory / "template info - SHORT - Individual.txt
 cvc_code_json = project_path / "CVC Codes.json"
 insurance_emails_json = project_path / "Insurance Emails.json"
 template_word_path = project_path / "Template - SHORT - Individual.docx"
+
+def check_and_warn_if_file_exists(file_path):
+    """
+    Checks if a file exists at the given path. If it exists, warns the user and asks for confirmation.
+    Requires the user to input the exact file name for confirmation. Exits the program if confirmation fails.
+
+    :param file_path: Path to the file to check
+    """
+    if file_path.exists():
+        print(f"WARNING: The file '{file_path}' already exists.")
+        print("If you want to overwrite it, please copy and paste the exact file name below:")
+        print(f"File to overwrite: {file_path.name}")
+        
+        user_input = input("Enter the file name to confirm overwrite: ").strip()
+        
+        if user_input != file_path.name:
+            print("File name does not match. Operation aborted. Exiting the program.")
+            sys.exit(1)  # Exit with a non-zero status to indicate intentional termination
+        else:
+            print("File name confirmed. Continuing with the operation. The file will be overwritten.")
+    else:
+        print("The file does not exist. Proceeding to create a new document.")
 
 def read_json_file(json_path):
     with open(json_path, "r", encoding="utf-8") as file:
@@ -384,6 +407,8 @@ def edit_docx_preserve_format(doc):
 
 # Paths for the input and output files
 output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
+
+check_and_warn_if_file_exists(output_path)
 
 # Load the document
 doc = Document(template_word_path)
