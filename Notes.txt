@@ -1,91 +1,42 @@
-Clients:
-
-Delgado, Alejandro, et al (DOL 10/16/2023) 
-	- Compared the draft Pablo had on Filevine and the insurance is different from the one I found on the documentation.
-	- Missing Dear. The person in title who the draft will be sent to on the insurance.
-	- Exhibits Missing PDF.
-	
-Mosqueda, John, et al. (DOL 09/05/2023)
-	- Mercury Insurance Company; Email not available on the list provided, nor was found any email online (Google).
-	- NO EVIDENCE FOLDER exists.
-	
-Soto, Amarie (DOL 09/29/2023)
-	- This case falls under the Premises Liability for what I could read from the Client Intake Form. The injury happend in Universal Studios Public Place. I need help with this. (Pablo said will do it.)
-	
-Rangel, Martin (DOL 06/19/2024)
-	- Checked all OPINS letters no email found. Found the claim handler name Alyse Rothenberg, found in the doc  Ltr. 2024.11.11 from OPINS Geico re Info Request.pdf. To me seems all communication for this claim has been done thru FACS.
-	- Missing Exhibits. I still need some help on how to better work on this PDF file making sure no it is structured as possible.
-
-Solis, Juan (DOL: 04/26/2024)
-	- Missing Exhibits. I still need some help on how to better work on this PDF file making sure no it is structured as possible.
-	
-Nguyen, Gina (DOL 04.09.2024)
-	- I was able to find the insured's information by looking thru the OPINS files. It seems the person that crashed into the client's car insurance is under somebody else. Need specific
-	- Missing Exhibits. I still need some help on how to better work on this PDF file making sure no it is structured as possible.
-	
-Jennings, Lobelia (DOL 02.15.2023)
-	- Found a recent demand on filevine that was drafted Ltr 2024.11.18 tp State Farm re TIME SENSITIVE POLICY LIMIT SETTLEMENT DEMAND OFFER.pdf
-	- Missing Exhibits. I still need some help on how to better work on this PDF file making sure no it is structured as possible.
-
-Paust, Casey, et al. (DOL 08/25/2023) DONE #####
-	- Medical are different from other providers, making me unclear where the diagnosis is.
-	- Missing Exhibits. I still need some help on how to better work on this PDF file making sure no it is structured as possible.
-	
-Casillas, Jesus (DOL: 04/23/2024)
-	- Concerned about the total on damages, the amount was as low as 1610$, an amount never worked with. Should be this handled the same way?
-	- Missing Exhibits. I still need some help on how to better work on this PDF file making sure no it is structured as possible.
-	
-Cruz, Julio (DOL: 05/07/2023)
-	- The amount surpasses 30k but unclear where the diagnosis, procedures and futures are found.
-	- Missing Exhibits. I still need some help on how to better work on this PDF file making sure no it is structured as possible.
-
-##################################################################################################################################
-
-Williamson, Suzanne (DOL: 06/29/2023)
-	- This client has a letter that was received from OPINS on 07.07.2023 not sure how to proceed with it. 
-	- Also, (Premise liability) The client slipped on an unmarked puddle in a store, injuring her hips and back, with no follow-up from the manager despite reporting it.
-
-Pozos, Saray, et al. (DOL 11/29/2023)
-
-Macias Mayorga, Angelica (DOL 03/31/2023)
-Alvarez, Santiago v. Gonzalo Erik Vargas, et al. (DOL 09/03/2022)
-Garcia, Ashley (DOL 06/28/2023)
-
-##################################################################################################################################
-
-future:
-Primary phisician
-
 Insurance Company Emails for Demands: 
 
-National General Insurance: 
-Mercury Insurance Company: 
+MAPFRE Insurance Company: ccparequest@mapfreusa.com
 CSAA Insurance Group: myclaim@csaa.com
 Farmers Insurance: myclaim@farmers.com 
-State Farm: statefarmclaims@statefarm.com 
+State Farm Insurance Company: statefarmclaims@statefarm.com 
 Allstate: claims@claims.allstate.com 
 Kemper: mail.claims@kemper.com 
 Fred Loya: attorneymail@fredloya.com
 Nationwide: nationwide-claims@nationwide.com 
 American Family Connect (AFICS): claimdocuments@afics.com 
 National General: claims@ngic.com 
+National General Insurance: 
+Mercury Insurance Company: 
+Progressive Insurance Company:
 
-##################################################################################################################################
+Action Required: Missing Information for 
 
-Questions & Doubts
+Hi Pablo,
 
-- Are demands drafted and sent each time a new medical record is available? (Just out of curiosity)
-- Still unclear on how to calculate the amount for Future Medical Expenses, Past Pain & Suffering/Emotional Distress, Future Pain & Suffering/Emotional Distress. What I am doing is just based on common sense considering how much time I have working for the firm.
+Below are the details about the client:
 
-Prompts:
+******** DETAILS *********
 
-I need to specify on the demand draft the client's Diagnosis: "What was diagnosed.", Procedures:"What they did about it", and Future Procedures. I have to go thru the records MREC and MBILL to find that information. Here is the document I have for the MREC.
+Let me know if any additional steps are needed or if clarification is required to move this case forward.
 
-Reminders:
+Best regards,
 
-- Ask about transportation.
+Elio Gonzalez
 
-Positive Phrases:
-I made some progress
-I went ahead and worked
-I took the initiative
+Completed Demand Letter for Review: 
+
+Hi Pablo,
+
+Here is a detailed explanation, and attached is the completed demand letter I wrote for this client:
+
+
+******** DETAILS *********
+
+Any feedback on how to improve would be greatly appreciated.
+
+Elio Gonzalez
