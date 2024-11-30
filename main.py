@@ -5,14 +5,29 @@ import os
 import pathlib
 import json
 import sys
+import shutil
 
 working_directory = pathlib.Path(os.getcwd())
 project_path = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
 
-file_template_data = working_directory / "template info - SHORT - Individual.txt"
 cvc_code_json = project_path / "CVC Codes.json"
 insurance_emails_json = project_path / "Insurance Emails.json"
 template_word_path = project_path / "Template - SHORT - Individual.docx"
+
+file_template_data = project_path / "template info - SHORT - Individual.txt"
+file_template_source = working_directory / (working_directory.name + ".txt")
+
+
+# Function to ensure the target file exists
+def ensure_file_exists(src, dst):
+    if not dst.exists():
+        print(f"Target file '{dst}' does not exist. Copying from source.")
+        if not src.exists():
+            print(f"Source file '{src}' does not exist. Aborting operation.")
+            return
+        shutil.copy(src, dst)
+        print(f"File copied successfully from '{src}' to '{dst}'.")
+
 
 def check_and_warn_if_file_exists(file_path):
 
@@ -36,14 +51,17 @@ def read_json_file(json_path):
 
 def update_json_file(json_path, cvc_json, cvc_code):
     # Prompt the user for the text corresponding to the CVC code
-    cvc_json[cvc_code] = input(f"Please enter the text for the CVC code '{cvc_code.upper()}' missing in the database: ")
+    if cvc_code:
+        cvc_json[cvc_code] = input(f"Please enter the text for the CVC code '{cvc_code.upper()}' missing in the database: ")
 
-    # Save the updated dictionary back to the JSON file
-    with open(json_path, "w", encoding="utf-8") as file:
-        json.dump(cvc_json, file, ensure_ascii=False, indent=4)
+        # Save the updated dictionary back to the JSON file
+        with open(json_path, "w", encoding="utf-8") as file:
+            json.dump(cvc_json, file, ensure_ascii=False, indent=4)
 
-    # Return the updated dictionary
-    return cvc_json
+        # Return the updated dictionary
+        return cvc_json
+    print("CVC Code field is empty. Fill it before continue, exiting...")
+    sys.exit(1)
 
 def create_string(cvc_codes):
     cvc_text = ""
@@ -96,7 +114,6 @@ def find_element_index(last_names, duplicate_lastname):
             indexes_found.append(i)  # Save the index of matching last name
     return indexes_found
 
-
 def add_names_to_duplicate_lastnames(client_names, mr_mrs_client_last_name):
     last_names = [i.strip() for i in mr_mrs_client_last_name.replace(", and ", ",").split(",")]
     duplicate_lastname = find_duplicate(last_names)
@@ -121,11 +138,11 @@ def custom_title(text, excluded_words=None):
         for word in text.split()
     )
 
-
 def parse_file_data():
-    with open(file_template_data, "r", encoding="utf-8") as file:
+    with open(file_template_source, "r", encoding="utf-8") as file:
         return [i.strip().split(":")[1].strip() for i in file.readlines()]
 
+ensure_file_exists(file_template_data, file_template_source)
 DATA = parse_file_data()
 
 # Client Information
