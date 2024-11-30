@@ -6,9 +6,12 @@ import pathlib
 import json
 
 working_directory = pathlib.Path(os.getcwd())
+project_path = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
+
 file_template_data = working_directory / "template info - SHORT - Individual.txt"
-cvc_code_json = working_directory / "CVC Codes.json"
-insurance_emails_json = working_directory / "Insurance Emails.json"
+cvc_code_json = project_path / "CVC Codes.json"
+insurance_emails_json = project_path / "Insurance Emails.json"
+template_word_path = project_path / "Template - SHORT - Individual.docx"
 
 def read_json_file(json_path):
     with open(json_path, "r", encoding="utf-8") as file:
@@ -380,11 +383,10 @@ def edit_docx_preserve_format(doc):
 
 
 # Paths for the input and output files
-file_path = f"{os.getcwd()}/Template - SHORT - Individual.docx"
-output_path = file_path.replace("Template - SHORT - Individual", CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper())
+output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
 
 # Load the document
-doc = Document(file_path)
+doc = Document(template_word_path)
 
 # Replace placeholders
 edit_docx_preserve_format(doc)
