@@ -1,11 +1,11 @@
-Client's Name: 
-Client's Gender (woman/man): 
-Is Client Young? (yes/no): 
-Insured's Name: 
-Insured's Gender (woman/man): 
-Insurance Contact Email: 
-Insurance Company Name: 
-Claim Number: 
-Data Loss (mm/dd/yyyy): 
-Claim Processor's Name: 
-CVC Text: California Vehicle Code 
+Client's Name: Elio Gonzalez
+Client's Gender (woman/man): man
+Is Client Young? (yes/no): yes
+Insured's Name: John Rodriguez
+Insured's Gender (woman/man): man
+Insurance Contact Email: geico@insurance.com
+Insurance Company Name: GEICO Insurance Company
+Claim Number: CL1515155
+Data Loss (mm/dd/yyyy): 08/08/2024
+Claim Processor's Name: Julio Caño
+CVC Codes: 21658, 22350, 21658, 22350, 21658, 22350, 21658, 22350

@@ -2,8 +2,58 @@ from docx import Document
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 import os
+import pathlib
+import json
 
-file_template_data = os.getcwd() + "/template info - SHORT - Individual.txt"
+working_directory = pathlib.Path(os.getcwd())
+file_template_data = working_directory / "template info - SHORT - Individual.txt"
+cvc_code_json = working_directory / "CVC Codes.json"
+insurance_emails_json = working_directory / "Insurance Emails.json"
+
+def read_json_file(json_path):
+    with open(json_path, "r", encoding="utf-8") as file:
+        return json.load(file)  # Return the loaded JSON data
+
+def update_json_file(json_path, cvc_json, cvc_code):
+    # Prompt the user for the text corresponding to the CVC code
+    cvc_json[cvc_code] = input(f"Please enter the text for the CVC code '{cvc_code.upper()}' missing in the database: ")
+
+    # Save the updated dictionary back to the JSON file
+    with open(json_path, "w", encoding="utf-8") as file:
+        json.dump(cvc_json, file, ensure_ascii=False, indent=4)
+
+    # Return the updated dictionary
+    return cvc_json
+
+def create_string(cvc_codes):
+    cvc_text = ""
+    cvc_json = read_json_file(cvc_code_json)
+
+    if "," in cvc_codes:
+        for index, cvc_code in enumerate(cvc_codes.split(", ")):
+            while True:
+                try:
+                    cvc_text_code = cvc_json[cvc_code]
+                    break
+                except KeyError:
+                    cvc_json = update_json_file(cvc_code_json, cvc_json, cvc_code)
+
+            cvc_text += 'California Vehicle Code ' + cvc_code + ' "' + cvc_text_code + '"'
+            if index != len(cvc_codes.split(", "))-1:
+                cvc_text += ", "
+            else:
+                cvc_text += "."
+    else:
+        while True:
+            try:
+                cvc_text_code = cvc_json[cvc_codes]
+                break
+            except KeyError:
+                cvc_json = update_json_file(cvc_code_json, cvc_json, cvc_codes)
+        cvc_text = 'California Vehicle Code ' + cvc_codes + ' "' + cvc_text_code + '".'
+
+    return cvc_text
+    
 
 def find_duplicate(lst):
     seen = set()
@@ -12,7 +62,6 @@ def find_duplicate(lst):
             return element.strip()
         seen.add(element)
     return None  # If no duplicates are found
-
 
 def get_first_names(names):
     first_names = []
@@ -86,7 +135,7 @@ DATE_OF_LOSS = DATA[8]
 CLAIM_RESPONSIBLE_RECEIVER = DATA[9]
 
 # California Civil Code Text
-CALIFORNIA_CVC_TEXT = DATA[10]
+CALIFORNIA_CVC_TEXT = create_string(DATA[10])
 
 INSURANCE_INIT = INSURANCE_NAME.split(" ")[0]
 INSURANCE_NAME_CAP = INSURANCE_NAME.upper()
