@@ -143,7 +143,8 @@ def custom_title(text, excluded_words=None):
 def parse_file_data():
     with open(file_template_source, "r", encoding="utf-8") as file:
         return [i.strip().split(":")[1].strip() for i in file.readlines()]
-
+    
+ensure_file_exists(file_template_data, file_template_source)
 DATA = parse_file_data()
 
 # Client Information
@@ -352,7 +353,6 @@ if "," in CLIENT_SEX:
 else:
     CLIENT_SEX = f"a healthy {CLIENT_SEX} loses"
 
-ensure_file_exists(file_template_data, file_template_source)
 
 # Store variables in a dictionary
 CLIENT_DATA = {
