@@ -1,18 +1,19 @@
 Insurance Company Emails for Demands: 
 
-MAPFRE Insurance Company: ccparequest@mapfreusa.com
-CSAA Insurance Group: myclaim@csaa.com
-Farmers Insurance: myclaim@farmers.com 
-State Farm Insurance Company: statefarmclaims@statefarm.com 
-Allstate: claims@claims.allstate.com 
-Kemper: mail.claims@kemper.com 
-Fred Loya: attorneymail@fredloya.com
-Nationwide: nationwide-claims@nationwide.com 
-American Family Connect (AFICS): claimdocuments@afics.com 
-National General: claims@ngic.com 
-National General Insurance: 
-Mercury Insurance Company: 
-Progressive Insurance Company:
+"MAPFRE Insurance Company": "ccparequest@mapfreusa.com",
+"CSAA Insurance Group": "myclaim@csaa.com",
+"Farmers Insurance Company": "myclaim@farmers.com",
+"State Farm Insurance Company": "statefarmclaims@statefarm.com",
+"Allstate Insurance Company": "claims@claims.allstate.com",
+"Kemper Insurance Company": "mail.claims@kemper.com",
+"Fred Loya Insurance Company": "attorneymail@fredloya.com",
+"Nationwide Insurance Company": "nationwide-claims@nationwide.com",
+"American Family Connect Insurance Company (AFICS)": "claimdocuments@afics.com",
+"National General Insurance Company": "claims@nationalgeneral.com",
+"Mercury Insurance Company": "claims@mercuryinsurance.com",
+"Progressive Insurance Company": "claims@progressive.com"
+
+***************************************************************************************************
 
 Action Required: Missing Information for 
 
@@ -28,6 +29,8 @@ Best regards,
 
 Elio Gonzalez
 
+***************************************************************************************************
+
 Completed Demand Letter for Review: 
 
 Hi Pablo,
@@ -40,3 +43,5 @@ Here is a detailed explanation, and attached is the completed demand letter I wr
 Any feedback on how to improve would be greatly appreciated.
 
 Elio Gonzalez
+
+***************************************************************************************************

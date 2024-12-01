@@ -9,3 +9,5 @@ Claim Number:
 Data Loss (mm/dd/yyyy): 
 Claim Processor's Name: 
 CVC Codes: 
+Status (missing_info/completed): 
+Send Email? (I ACCEPT SEND MESSAGE IS READY): 

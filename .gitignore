@@ -1,5 +1,9 @@
 # Ignore
 *.docx
+credentials.json
+refresh_token.json
+cases
+__pycache__
 
 # Exclude
 !Template - SHORT - Individual - ORIGINAL.docx

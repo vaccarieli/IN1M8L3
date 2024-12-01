@@ -6,6 +6,7 @@ import pathlib
 import json
 import sys
 import shutil
+from send_email import send_email
 
 working_directory = pathlib.Path(os.getcwd())
 project_path = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
@@ -16,33 +17,34 @@ template_word_path = project_path / "Template - SHORT - Individual.docx"
 
 file_template_data = project_path / "template info - SHORT - Individual.txt"
 file_template_source = working_directory / (working_directory.name + ".txt")
-
+file_template_source_details = working_directory / (working_directory.name + " - (details).txt")
 
 # Function to ensure the target file exists
 def ensure_file_exists(src, dst):
-    if not dst.exists():
+    # Check if the target file exists
+    if not os.path.exists(dst):
         print(f"Target file '{dst}' does not exist. Copying from source.")
-        if not src.exists():
+        
+        # Check if the source file exists
+        if not os.path.exists(src):
             print(f"Source file '{src}' does not exist. Aborting operation.")
             return
+        
+        # Copy the source file to the destination
         shutil.copy(src, dst)
         print(f"File copied successfully from '{src}' to '{dst}'.")
+    
+    # Check if the text file exists and create it if not
+    if not os.path.exists(file_template_source_details):
+        with open(file_template_source_details, "w", encoding="utf-8") as f:
+            pass  # Create an empty text file
+        print(f"Blank text file '{file_template_source_details}' created successfully.")
 
 
 def check_and_warn_if_file_exists(file_path):
-
     if file_path.exists():
-        print(f"WARNING: The file '{file_path}' already exists.")
-        print("If you want to overwrite it, please copy and paste the exact file name below:")
-        print(f"File to overwrite: {file_path.name}")
-        
-        user_input = input("Enter the file name to confirm overwrite: ").strip()
-        
-        if user_input != file_path.name:
-            print("File name does not match. Operation aborted. Exiting the program.")
-            sys.exit(1)  # Exit with a non-zero status to indicate intentional termination
-        else:
-            print("File name confirmed. Continuing with the operation. The file will be overwritten.")
+        return False
+    return True
 
 
 def read_json_file(json_path):
@@ -142,7 +144,6 @@ def parse_file_data():
     with open(file_template_source, "r", encoding="utf-8") as file:
         return [i.strip().split(":")[1].strip() for i in file.readlines()]
 
-ensure_file_exists(file_template_data, file_template_source)
 DATA = parse_file_data()
 
 # Client Information
@@ -165,6 +166,9 @@ CLAIM_RESPONSIBLE_RECEIVER = DATA[9]
 
 # California Civil Code Text
 CALIFORNIA_CVC_TEXT = create_string(DATA[10])
+
+STATUS_DEMAND = DATA[11].strip()
+EMAIL_SEND = True if DATA[12] == "I ACCEPT SEND MESSAGE IS READY" else False
 
 INSURANCE_INIT = INSURANCE_NAME.split(" ")[0]
 INSURANCE_NAME_CAP = INSURANCE_NAME.upper()
@@ -348,6 +352,8 @@ if "," in CLIENT_SEX:
 else:
     CLIENT_SEX = f"a healthy {CLIENT_SEX} loses"
 
+ensure_file_exists(file_template_data, file_template_source)
+
 # Store variables in a dictionary
 CLIENT_DATA = {
     "CLIENT_NAME": CLIENT_NAME,
@@ -410,15 +416,20 @@ def edit_docx_preserve_format(doc):
 
 # Paths for the input and output files
 output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
+receipt_email = 'eliocommunity5@gmail.com'
 
-check_and_warn_if_file_exists(output_path)
+if check_and_warn_if_file_exists(output_path):
+    # Load the document
+    doc = Document(template_word_path)
 
-# Load the document
-doc = Document(template_word_path)
+    # Replace placeholders
+    edit_docx_preserve_format(doc)
 
-# Replace placeholders
-edit_docx_preserve_format(doc)
+    # Save the updated document
+    doc.save(output_path)
+    print(f"Document saved as: {output_path}")
 
-# Save the updated document
-doc.save(output_path)
-print(f"Document updated and saved as: {output_path}")
+# if EMAIL_SEND: # Send Test to me
+#     with open(file_template_source_details, "r", encoding="utf-8") as file:
+#         case_details = file.read().strip()
+#     send_email(receipt_email, STATUS_DEMAND, working_directory.name, case_details, [output_path])
