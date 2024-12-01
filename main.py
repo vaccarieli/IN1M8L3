@@ -18,6 +18,7 @@ template_word_path = project_path / "Template - SHORT - Individual.docx"
 file_template_data = project_path / "template info - SHORT - Individual.txt"
 file_template_source = working_directory / (working_directory.name + ".txt")
 file_template_source_details = working_directory / (working_directory.name + " - (details).txt")
+sent_message_path = working_directory / "sent_message"
 
 # Function to ensure the target file exists
 def ensure_file_exists(src, dst):
@@ -416,7 +417,7 @@ def edit_docx_preserve_format(doc):
 
 # Paths for the input and output files
 output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
-receipt_email = 'eliocommunity5@gmail.com'
+receipt_email = 'vacarieli@gmail.com'
 
 if check_and_warn_if_file_exists(output_path):
     # Load the document
@@ -429,7 +430,9 @@ if check_and_warn_if_file_exists(output_path):
     doc.save(output_path)
     print(f"Document saved as: {output_path}")
 
-# if EMAIL_SEND: # Send Test to me
-#     with open(file_template_source_details, "r", encoding="utf-8") as file:
-#         case_details = file.read().strip()
-#     send_email(receipt_email, STATUS_DEMAND, working_directory.name, case_details, [output_path])
+if EMAIL_SEND and not pathlib.Path(sent_message_path).exists(): # Send Test to me
+    with open(file_template_source_details, "r", encoding="utf-8") as file:
+        case_details = file.read().strip()
+    send_email(receipt_email, STATUS_DEMAND, working_directory.name, case_details, [output_path])
+    with open(sent_message_path, "w", encoding="utf-8") as file: file.write("")
+    print(f"message was sent to {receipt_email} succesfully!")

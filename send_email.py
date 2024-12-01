@@ -1,16 +1,15 @@
 import os
+import sys
 import base64
-from email.mime.base import MIMEBase
-from email import encoders
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 import json
 import os.path
 from google.auth.transport.requests import Request
 import pathlib
+from email.message import EmailMessage
+from googleapiclient.errors import HttpError
 
 # Set up the path for the credentials and refresh token files
 BASE_SCOPE_URL = "https://www.googleapis.com/auth/"
@@ -49,46 +48,40 @@ def authenticate_google_account():
     return service
 
 
+
 def send_email_with_attachment(service, recipient, subject, message_text, attachment_paths=None):
-    """Send an email with attachment using Gmail API."""
-    # Fetch the authenticated user's email address
-    user_info = service.users().getProfile(userId='me').execute()
-
-    # Create the email message
-    message = MIMEMultipart()
-    message['to'] = recipient
-    message['from'] = user_info['emailAddress']  # Set sender name and email
-    message['subject'] = subject
-
-    # Attach the HTML message
-    message.attach(MIMEText(message_text, 'html'))  # Specify 'html' for MIME type
-
-    # Attach files, if any
-    if attachment_paths:
-        for file_path in attachment_paths:
-            if os.path.exists(file_path):
-                with open(file_path, 'rb') as f:
-                    mime_base = MIMEBase('application', 'octet-stream')
-                    mime_base.set_payload(f.read())
-                encoders.encode_base64(mime_base)
-                mime_base.add_header(
-                    'Content-Disposition',
-                    f'attachment; filename="{os.path.basename(file_path)}"'
-                )
-                message.attach(mime_base)
-            else:
-                print(f"File not found: {file_path}")
-
-    # Encode the message
-    raw_message = base64.urlsafe_b64encode(message.as_bytes()).decode('utf-8')
-    body = {'raw': raw_message}
-
-    # Send the email
+    """Send an email with attachments using Gmail API."""
     try:
-        sent_message = service.users().messages().send(userId='me', body=body).execute()
+        # Create the email message
+        message = EmailMessage()
+        message["To"] = recipient
+        message["From"] = service.users().getProfile(userId="me").execute()["emailAddress"]
+        message["Subject"] = subject
+        message.set_content(message_text, subtype="html")  # Specify HTML content if needed
+
+        # Attach files, if any
+        if attachment_paths:
+            for file_path in attachment_paths:
+                if os.path.exists(file_path):
+                    with open(file_path, "rb") as f:
+                        file_data = f.read()
+                        file_name = os.path.basename(file_path)
+                        message.add_attachment(file_data, maintype="application", subtype="octet-stream", filename=file_name)
+                else:
+                    print(f"File not found: {file_path}")
+
+        # Encode the message
+        encoded_message = base64.urlsafe_b64encode(message.as_bytes()).decode("utf-8")
+        create_message = {"raw": encoded_message}
+
+        # Send the email
+        sent_message = service.users().messages().send(userId="me", body=create_message).execute()
         print(f"Email sent! Message ID: {sent_message['id']}")
-    except Exception as error:
+        return sent_message
+
+    except HttpError as error:
         print(f"An error occurred: {error}")
+        return None
 
 
 
@@ -161,9 +154,12 @@ def send_email(to, email_type, client_name, case_details, attachment=None):
     email_body = generate_email_template(email_type, generate_details_html(case_details))
 
     if email_type == "missing_info":
-        subject = f"Action Required Missing Information for: {client_name}"
-    else:
+        subject = f"Missing Information for: {client_name}"
+    elif email_type == "completed":
         subject = f"Completed Demand Letter for Review: {client_name}"
+    else:
+        print("Make sure to add the field email_type to send the email!")
+        sys.exit(1)
 
     # Send the email
     send_email_with_attachment(
