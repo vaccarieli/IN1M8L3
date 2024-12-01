@@ -417,7 +417,7 @@ def edit_docx_preserve_format(doc):
 
 # Paths for the input and output files
 output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
-receipt_email = 'vacarieli@gmail.com'
+receipt_email = 'pablo@sedlawgroup.com'
 
 if check_and_warn_if_file_exists(output_path):
     # Load the document
@@ -431,8 +431,13 @@ if check_and_warn_if_file_exists(output_path):
     print(f"Document saved as: {output_path}")
 
 if EMAIL_SEND and not pathlib.Path(sent_message_path).exists(): # Send Test to me
-    with open(file_template_source_details, "r", encoding="utf-8") as file:
-        case_details = file.read().strip()
-    send_email(receipt_email, STATUS_DEMAND, working_directory.name, case_details, [output_path])
-    with open(sent_message_path, "w", encoding="utf-8") as file: file.write("")
-    print(f"message was sent to {receipt_email} succesfully!")
+    response = input(f"Send the message to {receipt_email} ? (YES) to send!\n> ")
+    response = True if response == "YES" else False
+    if response:
+        with open(file_template_source_details, "r", encoding="utf-8") as file:
+            case_details = file.read().strip()
+        send_email(receipt_email, STATUS_DEMAND, working_directory.name, case_details, [output_path])
+        with open(sent_message_path, "w", encoding="utf-8") as file: file.write("")
+        print(f"message was sent to {receipt_email} succesfully!")
+    else:
+        print("Exiting...")
