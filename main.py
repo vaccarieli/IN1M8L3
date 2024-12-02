@@ -418,6 +418,7 @@ def edit_docx_preserve_format(doc):
 # Paths for the input and output files
 output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
 receipt_email = 'pablo@sedlawgroup.com'
+# receipt_email = 'vacarieli@gmail.com'
 
 if check_and_warn_if_file_exists(output_path):
     # Load the document

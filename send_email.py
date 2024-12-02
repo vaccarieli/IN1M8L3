@@ -10,6 +10,8 @@ from google.auth.transport.requests import Request
 import pathlib
 from email.message import EmailMessage
 from googleapiclient.errors import HttpError
+from email.utils import formataddr
+
 
 # Set up the path for the credentials and refresh token files
 BASE_SCOPE_URL = "https://www.googleapis.com/auth/"
@@ -52,10 +54,16 @@ def authenticate_google_account():
 def send_email_with_attachment(service, recipient, subject, message_text, attachment_paths=None):
     """Send an email with attachments using Gmail API."""
     try:
+
+        # Fetch the email address
+        user_profile = service.users().getProfile(userId="me").execute()
+        email_address = user_profile["emailAddress"]
+        formatted_from = formataddr(("Elio Gonzalez", email_address))
+
         # Create the email message
         message = EmailMessage()
         message["To"] = recipient
-        message["From"] = service.users().getProfile(userId="me").execute()["emailAddress"]
+        message["From"] = formatted_from
         message["Subject"] = subject
         message.set_content(message_text, subtype="html")  # Specify HTML content if needed
 
