@@ -417,8 +417,8 @@ def edit_docx_preserve_format(doc):
 
 # Paths for the input and output files
 output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
-receipt_email = 'pablo@sedlawgroup.com'
-# receipt_email = 'vacarieli@gmail.com'
+receipt_email = ('Pablo Gaspar', 'pablo@sedlawgroup.com')
+# receipt_email = ('Elio Gonzalez', 'vacarieli@gmail.com')
 
 if check_and_warn_if_file_exists(output_path):
     # Load the document
@@ -432,7 +432,7 @@ if check_and_warn_if_file_exists(output_path):
     print(f"Document saved as: {output_path}")
 
 if EMAIL_SEND and not pathlib.Path(sent_message_path).exists(): # Send Test to me
-    response = input(f"Send the message to {receipt_email} ? (YES) to send!\n> ")
+    response = input(f"Send the message to {receipt_email}? (YES) to send!\n> ")
     response = True if response == "YES" else False
     if response:
         with open(file_template_source_details, "r", encoding="utf-8") as file:

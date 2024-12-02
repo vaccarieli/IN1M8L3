@@ -50,10 +50,11 @@ def authenticate_google_account():
     return service
 
 
-
-def send_email_with_attachment(service, recipient, subject, message_text, attachment_paths=None):
+def send_email_with_attachment(recipient, subject, message_text, attachment_paths=None):
     """Send an email with attachments using Gmail API."""
     try:
+
+        service = authenticate_google_account()
 
         # Fetch the email address
         user_profile = service.users().getProfile(userId="me").execute()
@@ -62,7 +63,7 @@ def send_email_with_attachment(service, recipient, subject, message_text, attach
 
         # Create the email message
         message = EmailMessage()
-        message["To"] = recipient
+        message["To"] = formataddr(recipient) 
         message["From"] = formatted_from
         message["Subject"] = subject
         message.set_content(message_text, subtype="html")  # Specify HTML content if needed
@@ -157,8 +158,6 @@ def generate_details_html(client_details):
 
 def send_email(to, email_type, client_name, case_details, attachment=None):
 
-    gmail_service = authenticate_google_account() #google_service("gmail", "v1")
-
     email_body = generate_email_template(email_type, generate_details_html(case_details))
 
     if email_type == "missing_info":
@@ -171,7 +170,6 @@ def send_email(to, email_type, client_name, case_details, attachment=None):
 
     # Send the email
     send_email_with_attachment(
-        service=gmail_service,
         recipient=to,
         subject=subject,
         message_text=email_body,
