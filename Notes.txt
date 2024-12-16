@@ -1,33 +1,25 @@
 Insurance Company Emails for Demands: 
 
-"MAPFRE Insurance Company": "ccparequest@mapfreusa.com",
-"CSAA Insurance Group": "myclaim@csaa.com",
-"Farmers Insurance Company": "myclaim@farmers.com",
-"State Farm Insurance Company": "statefarmclaims@statefarm.com",
-"Allstate Insurance Company": "claims@claims.allstate.com",
-"Kemper Insurance Company": "mail.claims@kemper.com",
-"Fred Loya Insurance Company": "attorneymail@fredloya.com",
-"Nationwide Insurance Company": "nationwide-claims@nationwide.com",
-"American Family Connect Insurance Company (AFICS)": "claimdocuments@afics.com",
-"National General Insurance Company": "claims@nationalgeneral.com",
-"Mercury Insurance Company": "claims@mercuryinsurance.com",
-"Progressive Insurance Company": "claims@progressive.com"
-
-***************************************************************************************************
-
-Action Required: Missing Information for 
-
-Hi Pablo,
-
-Below are the details about the client:
-
-******** DETAILS *********
-
-Let me know if any additional steps are needed or if clarification is required to move this case forward.
-
-Best regards,
-
-Elio Gonzalez
+insurance_contacts = {
+    "MAPFRE Insurance Company": "ccparequest@mapfreusa.com",
+    "CSAA Insurance Group": "myclaim@csaa.com",
+    "Farmers Insurance Company": "myclaim@farmers.com",
+    "State Farm Insurance Company": "statefarmclaims@statefarm.com",
+    "Allstate Insurance Company": "claims@claims.allstate.com",
+    "Kemper Insurance Company": "mail.claims@kemper.com",
+    "Fred Loya Insurance Company": "attorneymail@fredloya.com",
+    "Nationwide Insurance Company": "nationwide-claims@nationwide.com",
+    "American Family Connect Insurance Company (AFICS)": "claimdocuments@afics.com",
+    "National General Insurance Company": "claims@ngic.com",
+    "Mercury Insurance Company": "claims@mercuryinsurance.com",
+    "Progressive Insurance Company": "claims@progressive.com",
+    "Liberty Mutual Insurance Company": "aldocs@libertymutual.com",
+	"GEICO General Insurance Company": "claims@geico.com",
+    "AAA Interinsurance Exchange of the Automobile Club": "",
+    "Aspire General Insurance Company": "claims@agicins.com",
+    "Federal Insurance Company": "cscfnol@chubb.com",
+    "Blue Fire Insurance Company": "ClaimsDocs@bluefireins.com"
+}
 
 ***************************************************************************************************
 
@@ -37,11 +29,6 @@ Hi Pablo,
 
 Here is a detailed explanation, and attached is the completed demand letter I wrote for this client:
 
-
-******** DETAILS *********
+################################ DETAILS ###############################
 
 Any feedback on how to improve would be greatly appreciated.
-
-Elio Gonzalez
-
-***************************************************************************************************
