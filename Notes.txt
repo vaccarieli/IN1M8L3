@@ -15,11 +15,16 @@ insurance_contacts = {
     "Progressive Insurance Company": "claims@progressive.com",
     "Liberty Mutual Insurance Company": "aldocs@libertymutual.com",
 	"GEICO General Insurance Company": "claims@geico.com",
-    "AAA Interinsurance Exchange of the Automobile Club": "",
+    "AAA Interinsurance Exchange of the Automobile Club": "myclaim@csaa.com",
     "Aspire General Insurance Company": "claims@agicins.com",
     "Federal Insurance Company": "cscfnol@chubb.com",
-    "Blue Fire Insurance Company": "ClaimsDocs@bluefireins.com"
+    "Blue Fire Insurance Company": "ClaimsDocs@bluefireins.com",
+	"USAA Insurance Company": "",
+	"Farmers Insurance Company": "myclaim@farmersinsurance.com"
 }
+
+"This client's medical history is straight-up the worst I've come across, and the medical records? They're a total mess, like they don't even connect the dots." 
+
 
 ***************************************************************************************************
 
