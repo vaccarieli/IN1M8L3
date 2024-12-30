@@ -6,7 +6,6 @@ import pathlib
 import json
 import sys
 import shutil
-from send_email import send_email
 
 working_directory = pathlib.Path(os.getcwd())
 project_path = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
