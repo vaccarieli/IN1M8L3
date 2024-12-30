@@ -144,6 +144,16 @@ def parse_file_data():
     with open(file_template_source, "r", encoding="utf-8") as file:
         return [i.strip().split(":")[1].strip() for i in file.readlines()]
     
+def format_currency(amount):
+
+    try:
+        # Ensure the input is a float
+        amount = float(amount)
+        return "${:,.2f}".format(amount)
+    except ValueError:
+        # Handle the case where the input is not a number
+        raise ValueError(f"Invalid input for currency formatting: {amount}")
+    
 ensure_file_exists(file_template_data, file_template_source)
 DATA = parse_file_data()
 
@@ -168,13 +178,10 @@ CLAIM_RESPONSIBLE_RECEIVER = DATA[9]
 # California Civil Code Text
 CALIFORNIA_CVC_TEXT = create_string(DATA[10])
 
-
-
-POLICY_NUMBER = DATA[11] # I.E 23768698269
-LIMIT_COVERAGE_CINS = DATA[12] # Format from 3000 -> $3,000.00 
-VIA_TYPE_CINS = DATA[13]  # Email CINS
-CINS = DATA[14] #CINS NAME 
-
+VIA_TYPE_CINS = DATA[11]  # Email CINS
+CINS = DATA[12] #CINS NAME 
+POLICY_NUMBER = DATA[13] # I.E 23768698269
+LIMIT_COVERAGE_CINS = format_currency(DATA[14]) # Format from 3000 -> $3,000.00 
 
 
 INSURANCE_INIT_OPINS = OPINS.split(" ")[0]
@@ -237,6 +244,8 @@ elif INSURED_SEX == "man":
 # Format the date as MM/DD/YYYY
 SETTLEMENT_EXP_DATE = (datetime.now() + relativedelta(months=1)).strftime("%m/%d/%Y")
 SETTLEMENT_EXP_DATE = datetime.strptime(SETTLEMENT_EXP_DATE, "%m/%d/%Y").strftime("%B %d, %Y").upper()
+
+SETTLEMENT_EXP_DATE_TITLE = SETTLEMENT_EXP_DATE.title()
 
 CLIENT_NAME_ALL_CAP = CLIENT_NAME.upper()
 CLIENT_NAME_EACH_CAP = custom_title(CLIENT_NAME, ["and"])
@@ -362,7 +371,7 @@ if "," in CLIENT_SEX:
 else:
     CLIENT_SEX = f"a healthy {CLIENT_SEX} loses"
 
-
+print(SETTLEMENT_EXP_DATE_TITLE)
 # Store variables in a dictionary
 CLIENT_DATA = {
     "CLIENT_NAME": CLIENT_NAME,
@@ -388,6 +397,7 @@ CLIENT_DATA = {
     "MR_MRS_CLIENT_NAME_EACH_CAP": MR_MRS_CLIENT_NAME_EACH_CAP,
     "MR_MRS_CLIENT_NAME_ALL_CAP": MR_MRS_CLIENT_NAME_ALL_CAP,
     "SETTLEMENT_EXP_DATE": SETTLEMENT_EXP_DATE,
+    "SETTLEMENT_EXP_DATE_TITLE": SETTLEMENT_EXP_DATE_TITLE,
     "CLIENT_NAME_ALL_CAP": CLIENT_NAME_ALL_CAP,
     "CLIENT_NAME_EACH_CAP": CLIENT_NAME_EACH_CAP,
     "MR_MRS_CLIENT_LAST_NAME": MR_MRS_CLIENT_LAST_NAME,
@@ -433,12 +443,13 @@ def edit_docx_preserve_format(doc):
 def draft_document(doc_template, file_type):
     # Paths for the input and output files
     output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + f" - ({file_type}).docx")
-    if check_and_warn_if_file_exists(output_path):
+
+    if True: #check_and_warn_if_file_exists(output_path):
         # Load the document
-        doc = Document(template_word_path_opins)
+        doc = Document(doc_template)
 
         # Replace placeholders
-        edit_docx_preserve_format(doc_template)
+        edit_docx_preserve_format(doc)
 
         # Save the updated document
         doc.save(output_path)
