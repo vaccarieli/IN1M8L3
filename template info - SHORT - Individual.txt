@@ -3,11 +3,13 @@ Client's Gender (woman/man):
 Is Client Young? (yes/no): 
 Insured's Name: 
 Insured's Gender (woman/man): 
-Insurance Contact Email: 
-Insurance Company Name: 
+OPINS Contact Email: 
+OPINS Company Name: 
 Claim Number: 
 Data Loss (mm/dd/yyyy): 
 Claim Processor's Name: 
 CVC Codes: 
-Status (missing_info/completed): 
-Send Email? (I ACCEPT SEND MESSAGE IS READY): 
+CINS Contact Email: 
+CINS Company Name: 
+Policy Number (CINS): 
+CINS Limit Coverage: 

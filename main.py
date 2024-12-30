@@ -160,8 +160,8 @@ INSURED_SEX = DATA[4]
 INSURED_TITLE = "Mr. " if INSURED_SEX.lower() == "man" else "Mrs. "
 
 # Contact and Claim Information
-VIA_TYPE = DATA[5]
-INSURANCE_NAME = DATA[6]
+VIA_TYPE_OPINS = DATA[5]
+OPINS = DATA[6]
 CLAIM_NUMBER = DATA[7]
 DATE_OF_LOSS = DATA[8]
 CLAIM_RESPONSIBLE_RECEIVER = DATA[9]
@@ -169,11 +169,20 @@ CLAIM_RESPONSIBLE_RECEIVER = DATA[9]
 # California Civil Code Text
 CALIFORNIA_CVC_TEXT = create_string(DATA[10])
 
-STATUS_DEMAND = DATA[11].strip()
-EMAIL_SEND = True if DATA[12] == "I ACCEPT SEND MESSAGE IS READY" else False
 
-INSURANCE_INIT = INSURANCE_NAME.split(" ")[0]
-INSURANCE_NAME_CAP = INSURANCE_NAME.upper()
+
+POLICY_NUMBER = DATA[11] # I.E 23768698269
+LIMIT_COVERAGE_CINS = DATA[12] # Format from 3000 -> $3,000.00 
+VIA_TYPE_CINS = DATA[13]  # Email CINS
+CINS = DATA[14] #CINS NAME 
+
+
+
+INSURANCE_INIT_OPINS = OPINS.split(" ")[0]
+INSURANCE_NAME_CAP_OPINS = OPINS.upper()
+
+INSURANCE_INIT_CINS = CINS.split(" ")[0]
+INSURANCE_NAME_CAP_CINS = CINS.upper()
 
 # Automatically set gender-specific variables based on CLIENT_SEX
 if CLIENT_SEX == "woman":
@@ -365,13 +374,13 @@ CLIENT_DATA = {
     "INSURED_TITLE": INSURED_TITLE,
     "HER_HIS_INSURED": HER_HIS_INSURED,
     "HE_SHE_INSURED": HE_SHE_INSURED,
-    "VIA_TYPE": VIA_TYPE,
-    "INSURANCE_NAME": INSURANCE_NAME,
+    "VIA_TYPE_OPINS": VIA_TYPE_OPINS,
+    "OPINS": OPINS,
     "CLAIM_NUMBER": CLAIM_NUMBER,
     "DATE_OF_LOSS": DATE_OF_LOSS,
     "CLAIM_RESPONSIBLE_RECEIVER": CLAIM_RESPONSIBLE_RECEIVER.title(),
     "CALIFORNIA_CVC_TEXT": CALIFORNIA_CVC_TEXT,
-    "INSURANCE_INIT": INSURANCE_INIT,
+    "INSURANCE_INIT_OPINS": INSURANCE_INIT_OPINS,
     "HE_SHE_CLIENT": HE_SHE_CLIENT,
     "HE_SHE_CLIENT_PAGE7": HE_SHE_CLIENT_PAGE7,
     "HER_HIM_CLIENT": HER_HIM_CLIENT,
@@ -388,9 +397,15 @@ CLIENT_DATA = {
     "MR_MRS_INSURED_NAME_EACH_CAP": MR_MRS_INSURED_NAME_EACH_CAP,
     "MR_OR_MRS_INSURED_NAME_ALL_CAP": MR_OR_MRS_INSURED_NAME_ALL_CAP,
     "DATE_OF_LOSS_FORMATTED": DATE_OF_LOSS_FORMATTED,
-    "INSURANCE_NAME_CAP": INSURANCE_NAME_CAP,
+    "INSURANCE_NAME_CAP_OPINS": INSURANCE_NAME_CAP_OPINS,
+
+    # TEMPLATE UM DATA
     "POLICY_NUMBER": POLICY_NUMBER,
-	"LIMIT_COVERAGE": LIMIT_COVERAGE
+	"LIMIT_COVERAGE_CINS": LIMIT_COVERAGE_CINS,
+    "VIA_TYPE_CINS": VIA_TYPE_CINS,
+    "CINS": CINS,
+    "INSURANCE_INIT_CINS": INSURANCE_INIT_CINS,
+    "INSURANCE_NAME_CAP_CINS": INSURANCE_NAME_CAP_CINS,
 }
 
 
@@ -433,14 +448,3 @@ if check_and_warn_if_file_exists(output_path):
     doc.save(output_path)
     print(f"Document saved as: {output_path}")
 
-if EMAIL_SEND and not pathlib.Path(sent_message_path).exists(): # Send Test to me
-    response = input(f"Send the message to {receipt_email}? (YES) to send!\n> ")
-    response = True if response == "YES" else False
-    if response:
-        with open(file_template_source_details, "r", encoding="utf-8") as file:
-            case_details = file.read().strip()
-        send_email(receipt_email, STATUS_DEMAND, working_directory.name, case_details, [output_path])
-        with open(sent_message_path, "w", encoding="utf-8") as file: file.write("")
-        print(f"message was sent to {receipt_email} succesfully!")
-    else:
-        print("Exiting...")
