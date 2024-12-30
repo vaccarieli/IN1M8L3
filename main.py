@@ -371,7 +371,6 @@ if "," in CLIENT_SEX:
 else:
     CLIENT_SEX = f"a healthy {CLIENT_SEX} loses"
 
-print(SETTLEMENT_EXP_DATE_TITLE)
 # Store variables in a dictionary
 CLIENT_DATA = {
     "CLIENT_NAME": CLIENT_NAME,
