@@ -13,12 +13,17 @@ project_path = pathlib.Path(os.path.dirname(os.path.abspath(__file__)))
 
 cvc_code_json = project_path / "CVC Codes.json"
 insurance_emails_json = project_path / "Insurance Emails.json"
-template_word_path = project_path / "Template - SHORT - Individual.docx"
+
+# Templates
+# Regular Template to send to OPINS
+template_word_path_opins = project_path / "Template - SHORT - Individual.docx"
+
+# Templates to send to CINS - UM - Uninsured Motorist. && UM AUTH
+template_word_path_cins_a = project_path / "Template UM - SHORT.docx"
+template_word_path_cins_b = project_path / "Template  Formal Demand for UMA.docx"
 
 file_template_data = project_path / "template info - SHORT - Individual.txt"
 file_template_source = working_directory / (working_directory.name + ".txt")
-file_template_source_details = working_directory / (working_directory.name + " - (details).txt")
-sent_message_path = working_directory / "sent_message"
 
 # Function to ensure the target file exists
 def ensure_file_exists(src, dst):
@@ -35,12 +40,6 @@ def ensure_file_exists(src, dst):
         shutil.copy(src, dst)
         print(f"File copied successfully from '{src}' to '{dst}'.")
     
-    # Check if the text file exists and create it if not
-    if not os.path.exists(file_template_source_details):
-        with open(file_template_source_details, "w", encoding="utf-8") as f:
-            pass  # Create an empty text file
-        print(f"Blank text file '{file_template_source_details}' created successfully.")
-
 
 def check_and_warn_if_file_exists(file_path):
     if file_path.exists():
@@ -431,20 +430,21 @@ def edit_docx_preserve_format(doc):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+def draft_document(doc_template, file_type):
+    # Paths for the input and output files
+    output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + f" - ({file_type}).docx")
+    if check_and_warn_if_file_exists(output_path):
+        # Load the document
+        doc = Document(template_word_path_opins)
 
-# Paths for the input and output files
-output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + ".docx")
-receipt_email = ('Pablo Gaspar', 'pablo@sedlawgroup.com')
-# receipt_email = ('Elio Gonzalez', 'vacarieli@gmail.com')
+        # Replace placeholders
+        edit_docx_preserve_format(doc_template)
 
-if check_and_warn_if_file_exists(output_path):
-    # Load the document
-    doc = Document(template_word_path)
+        # Save the updated document
+        doc.save(output_path)
+        print(f"Document saved as: {output_path}")
 
-    # Replace placeholders
-    edit_docx_preserve_format(doc)
-
-    # Save the updated document
-    doc.save(output_path)
-    print(f"Document saved as: {output_path}")
-
+if __name__ == "__main__":
+    draft_document(template_word_path_opins, "OPINS")
+    draft_document(template_word_path_cins_a, "CINS A")
+    draft_document(template_word_path_cins_b, "CINS B")
