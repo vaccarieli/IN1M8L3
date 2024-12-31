@@ -442,7 +442,7 @@ def draft_document(doc_template, file_type):
     # Paths for the input and output files
     output_path = working_directory / (CLIENT_NAME_ALL_CAP + " - "  + DATE_OF_LOSS_FORMATTED.upper() + f" - ({file_type}).docx")
 
-    if True: #check_and_warn_if_file_exists(output_path):
+    if check_and_warn_if_file_exists(output_path):
         # Load the document
         doc = Document(doc_template)
 
