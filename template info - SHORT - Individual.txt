@@ -9,7 +9,7 @@ Claim Number:
 Data Loss (mm/dd/yyyy): 
 Claim Processor's Name: 
 CVC Codes: 
-CINS Contact Email: 
-CINS Company Name: 
-Policy Number (CINS): 
-CINS Limit Coverage: 
+CINS Contact Email: NONE
+CINS Company Name: NONE
+Policy Number (CINS): NONE
+CINS Limit Coverage: 3000

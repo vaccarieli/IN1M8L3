@@ -256,7 +256,6 @@ if " and " not in CLIENT_NAME:
     MR_MRS_CLIENT_LAST_NAME = CLIENT_TITLE + CLIENT_LAST_NAME
     
 elif " and " in CLIENT_NAME and "," not in CLIENT_NAME: # more than one client 
-
     MR_MRS_CLIENT_LAST_NAME = ""
     MR_MRS_CLIENT_NAME = ""
 
@@ -298,8 +297,8 @@ else:
 
     for index, client_name in enumerate(CLIENT_NAME.split(", ")):
         last_name_tracker = []
-
-        client_name = client_name.strip("and ").strip()  # Remove extra spaces
+        if "and" in client_name[0:3]:
+            client_name = client_name[4:]
 
         if index != len(CLIENT_NAME.split(", "))-1:
             # Add ", " if there's already a name
@@ -340,6 +339,7 @@ else:
 
     MR_MRS_CLIENT_NAME_EACH_CAP = custom_title(MR_MRS_CLIENT_NAME, ["and"])
     MR_MRS_CLIENT_NAME_ALL_CAP = MR_MRS_CLIENT_NAME.upper()
+
 
 if " and " in MR_MRS_CLIENT_LAST_NAME:
     MR_MRS_CLIENT_LAST_NAME = add_names_to_duplicate_lastnames(CLIENT_NAME, MR_MRS_CLIENT_LAST_NAME)
