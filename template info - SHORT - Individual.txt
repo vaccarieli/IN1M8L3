@@ -2,7 +2,7 @@ Client's Name:
 Client's Gender (woman/man): 
 Is Client Young? (yes/no): 
 Insured's Name: 
-Insured's Gender (woman/man): 
+Insured's Gender (woman/man/company): 
 OPINS Contact Email: 
 OPINS Company Name: 
 Claim Number: 

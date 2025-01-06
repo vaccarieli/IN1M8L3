@@ -165,7 +165,7 @@ IS_YOUNG = "young" if IS_YOUNG == "yes" else (IS_YOUNG if len(IS_YOUNG) > 1 else
 # Insured Information
 INSURED_NAME = DATA[3]
 INSURED_SEX = DATA[4]
-INSURED_TITLE = "Mr. " if INSURED_SEX.lower() == "man" else "Mrs. "
+INSURED_TITLE = "Mr. " if INSURED_SEX.lower() == "man" else "Mrs. " if INSURED_SEX.lower() == "woman" else ""
 
 # Contact and Claim Information
 VIA_TYPE_OPINS = DATA[5]
@@ -238,6 +238,12 @@ elif INSURED_SEX == "man":
     HE_SHE_INSURED = "he"
     HER_HIM_INSURED = "him"
     HER_HIS_INSURED = "his"
+
+else:
+    HE_SHE_INSURED = "they"
+    HER_HIM_INSURED = "them"
+    HER_HIS_INSURED = "their"
+    
 
 
 # Format the date as MM/DD/YYYY
