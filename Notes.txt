@@ -23,7 +23,8 @@ insurance_contacts = {
 	"Farmers Insurance Company": "myclaim@farmersinsurance.com",
 	"Wawanesa General Insurance Company": "claimsmail@wawanesa.com",
 	"Safeco Insurance Company of America": "abuse@libertymutual.com",
-	Hartford Fire Insurance Company": "newloss@thehartford.com"
+	Hartford Fire Insurance Company": "newloss@thehartford.com",
+	"Blue Fire Insurance Company": "claimsdocs@bluefireins.com"
 }
 
 "This client's medical history is straight-up the worst I've come across, and the medical records? They're a total mess, like they don't even connect the dots." 
