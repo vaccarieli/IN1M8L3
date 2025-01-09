@@ -2,7 +2,7 @@ Insurance Company Emails for Demands:
 
 insurance_contacts = {
     "MAPFRE Insurance Company": "ccparequest@mapfreusa.com",
-    "CSAA Insurance Group": "myclaim@csaa.com",
+    "CSAA Insurance Exchange": "myclaim@csaa.com",
     "Farmers Insurance Company": "myclaim@farmersinsurance.com",
     "State Farm Insurance Company": "statefarmclaims@statefarm.com",
     "Allstate Insurance Company": "claims@claims.allstate.com",
@@ -24,7 +24,9 @@ insurance_contacts = {
 	"Wawanesa General Insurance Company": "claimsmail@wawanesa.com",
 	"Safeco Insurance Company of America": "abuse@libertymutual.com",
 	Hartford Fire Insurance Company": "newloss@thehartford.com",
-	"Blue Fire Insurance Company": "claimsdocs@bluefireins.com"
+	"Blue Fire Insurance Company": "claimsdocs@bluefireins.com",
+	"Esurance Insurance Company": "claims@ngic.com",
+	"Seaview Insurance Company": "asterett@svinsco.com"
 }
 
 "This client's medical history is straight-up the worst I've come across, and the medical records? They're a total mess, like they don't even connect the dots." 
@@ -43,3 +45,4 @@ Here is a detailed explanation, and attached is the completed demand letter I wr
 Any feedback on how to improve would be greatly appreciated.
 
 
+As such, the “deny, delay, defend” approach will not provide Esurance Insurance Company with effective cover to preclude the subsequent bad faith lawsuit. My client here has sustained serious and significant bodily injuries and harm as a result of this accident which will impact HER_HIS_CLIENT day to day life for the rest of her life. You owe my client for what Ms. Davila paid the insurance premiums for, this damage she now endures. 
