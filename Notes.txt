@@ -16,21 +16,32 @@ insurance_contacts = {
     "Liberty Mutual Insurance Company": "aldocs@libertymutual.com",
 	"GEICO General Insurance Company": "claims@geico.com",
     "AAA Interinsurance Exchange of the Automobile Club": "myclaim@csaa.com",
-    "Aspire General Insurance Company": "	",
+    "Aspire General Insurance Company": "claims@agicins.com",
     "Federal Insurance Company": "cscfnol@chubb.com",
     "Blue Fire Insurance Company": "ClaimsDocs@bluefireins.com",
-	"USAA Insurance Company": "",
+	"USAA Insurance Company": "claims.usaa.com",
 	"Farmers Insurance Company": "myclaim@farmersinsurance.com",
 	"Wawanesa General Insurance Company": "claimsmail@wawanesa.com",
 	"Safeco Insurance Company of America": "abuse@libertymutual.com",
-	Hartford Fire Insurance Company": "newloss@thehartford.com",
+	"Hartford Fire Insurance Company": "newloss@thehartford.com",
 	"Blue Fire Insurance Company": "claimsdocs@bluefireins.com",
 	"Esurance Insurance Company": "claims@ngic.com",
-	"Seaview Insurance Company": "asterett@svinsco.com"
+	"Seaview Insurance Company": "asterett@svinsco.com",
+	"Loya Casualty Insurance Company": "customerservice@fredloya.com",
+	"Sedgwick Claims Management Services": "NoEmail",
+	"Biberk Insurance Company": "claims@biberk.com",
+	"Viking Insurance Company": "support@visvcs.com",
+	"Mobilitas Insurance Company": "claimdocs@mobilitasinsurance.com",
+	"Fred Loya Casualty Insurance":"customerservice@fredloya.com",
+	"Athens Administrators Insurance Services": "lossruns@athensadmin.com"
+	"Pronto Insurance Company": "",
+	"Berkshire Hathaway GUARD": "csr@guard.com",
+	"Aegis Security Insurance Company "claimsq@aegisfirst.com"
 }
 
-"This client's medical history is straight-up the worst I've come across, and the medical records? They're a total mess, like they don't even connect the dots." 
+I want a list of CVC codes that definitively apply to my client's case (The PC) based solely on the undisputed facts provided. Please exclude any codes that rely on assumptions, possibilities, or further investigation. Focus only on clear violations evident from the facts.
 
+Unknow Defendant Driver
 
 ***************************************************************************************************
 
@@ -40,9 +51,90 @@ Hi Pablo,
 
 Here is a detailed explanation, and attached is the completed demand letter I wrote for this client:
 
-################################ DETAILS ###############################
+############################################################### DETAILS ##############################################################
 
 Any feedback on how to improve would be greatly appreciated.
 
 
-As such, the “deny, delay, defend” approach will not provide Esurance Insurance Company with effective cover to preclude the subsequent bad faith lawsuit. My client here has sustained serious and significant bodily injuries and harm as a result of this accident which will impact HER_HIS_CLIENT day to day life for the rest of her life. You owe my client for what Ms. Davila paid the insurance premiums for, this damage she now endures. 
+***************************************************************************************************
+
+************************************************** EMAIL TEMPLATE **********************************************************
+
+
+
+Dear Claim Team & All AAA Interinsurance Exchange of the Automobile Club Decision Makers:
+
+
+
+Attached, please find a copy of our client’s TIME SENSITIVE POLICY LIMIT SETTLEMENT DEMAND OFFER and accompanying supporting outstanding exhibits and documents.
+
+ 
+
+As set forth in the attached demand, please note that our client’s enclosed Settlement Demand Offer remains open and available for acceptance until 5:00 p.m. on February 27, 2025.
+
+ 
+
+Should you have any questions and/or would like to discuss further, please don’t hesitate to contact our office.
+
+
+********************************************************************************************************************
+
+
+
+
+
+
+
+
+CLIENT_NAME
+CLIENT_SEX
+IS_YOUNG
+INSURED_NAME
+INSURED_SEX
+INSURED_TITLE
+HER_HIS_INSURED
+HE_SHE_INSURED
+VIA_TYPE_OPINS
+OPINS
+CLAIM_NUMBER_OPINS
+DATE_OF_LOSS
+DATE_OF_LOSS_FORMATTED
+CLAIM_RESPONSIBLE_RECEIVER
+CALIFORNIA_CVC_TEXT
+INSURANCE_INIT_OPINS
+HE_SHE_CLIENT
+HE_SHE_CLIENT_PAGE7
+HER_HIM_CLIENT
+HER_HIS_CLIENT
+HER_HIS_CLIENT_CAP
+MR_MRS_CLIENT_NAME_EACH_CAP
+MR_MRS_CLIENT_NAME_ALL_CAP
+SETTLEMENT_EXP_DATE
+SETTLEMENT_EXP_DATE_TITLE
+CLIENT_NAME_ALL_CAP
+CLIENT_NAME_EACH_CAP
+MR_MRS_CLIENT_LAST_NAME
+INSURED_NAME_ALL_CAP
+INSURED_NAME_EACH_CAP
+MR_MRS_INSURED_NAME_EACH_CAP
+MR_OR_MRS_INSURED_NAME_ALL_CAP
+INSURANCE_NAME_CAP_OPINS
+POLICY_NUMBER
+LIMIT_COVERAGE_CINS
+VIA_TYPE_CINS
+CINS
+INSURANCE_INIT_CINS
+INSURANCE_NAME_CAP_CINS
+TORTFEASOR_UPPER
+TORTFEASOR_TITLE
+CLAIM_NUMBER_CINS
+
+
+
+
+FILE_NUMBER
+ACCIDENT_LOCATION
+ACCIDENT_DESCRIPTION = "waterproof pouch phone case that was left on the floor located in and around the vitamin aisle and customer service area of your insured’s premises. "
+
+
+

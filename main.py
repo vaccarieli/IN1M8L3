@@ -21,8 +21,24 @@ template_word_path_opins = project_path / "Template - SHORT - Individual.docx"
 template_word_path_cins_a = project_path / "Template UM - SHORT.docx"
 template_word_path_cins_b = project_path / "Template  Formal Demand for UMA.docx"
 
+ # Template Premise Path
+template_word_path_premise = project_path / "Slip & Fall Template Demand.docx"
+
 file_template_data = project_path / "template info - SHORT - Individual.txt"
 file_template_source = working_directory / (working_directory.name + ".txt")
+
+
+def format_date_premises(date_str):
+    # Parse the date
+    date_obj = datetime.strptime(date_str, "%m/%d/%Y")
+    
+    # Format the day with suffix
+    day = int(date_obj.strftime("%d"))
+    suffix = "th" if 11 <= day <= 13 else {1: "st", 2: "nd", 3: "rd"}.get(day % 10, "th")
+    
+    # Format the final string
+    formatted_date = date_obj.strftime(f"%B {day}{suffix} day")
+    return formatted_date
 
 # Function to ensure the target file exists
 def ensure_file_exists(src, dst):
@@ -68,28 +84,29 @@ def create_string(cvc_codes):
     cvc_text = ""
     cvc_json = read_json_file(cvc_code_json)
 
-    if "," in cvc_codes:
-        for index, cvc_code in enumerate(cvc_codes.split(", ")):
+    if cvc_codes:
+        if "," in cvc_codes:
+            for index, cvc_code in enumerate(cvc_codes.split(", ")):
+                while True:
+                    try:
+                        cvc_text_code = cvc_json[cvc_code]
+                        break
+                    except KeyError:
+                        cvc_json = update_json_file(cvc_code_json, cvc_json, cvc_code)
+
+                cvc_text += 'California Vehicle Code ' + cvc_code + ' "' + cvc_text_code + '"'
+                if index != len(cvc_codes.split(", "))-1:
+                    cvc_text += ", "
+                else:
+                    cvc_text += "."
+        else:
             while True:
                 try:
-                    cvc_text_code = cvc_json[cvc_code]
+                    cvc_text_code = cvc_json[cvc_codes]
                     break
                 except KeyError:
-                    cvc_json = update_json_file(cvc_code_json, cvc_json, cvc_code)
-
-            cvc_text += 'California Vehicle Code ' + cvc_code + ' "' + cvc_text_code + '"'
-            if index != len(cvc_codes.split(", "))-1:
-                cvc_text += ", "
-            else:
-                cvc_text += "."
-    else:
-        while True:
-            try:
-                cvc_text_code = cvc_json[cvc_codes]
-                break
-            except KeyError:
-                cvc_json = update_json_file(cvc_code_json, cvc_json, cvc_codes)
-        cvc_text = 'California Vehicle Code ' + cvc_codes + ' "' + cvc_text_code + '".'
+                    cvc_json = update_json_file(cvc_code_json, cvc_json, cvc_codes)
+            cvc_text = 'California Vehicle Code ' + cvc_codes + ' "' + cvc_text_code + '".'
 
     return cvc_text
     
@@ -141,7 +158,7 @@ def custom_title(text, excluded_words=None):
 
 def parse_file_data():
     with open(file_template_source, "r", encoding="utf-8") as file:
-        return [i.strip().split(":")[1].strip() for i in file.readlines()]
+        return [None if (val := i.strip().split(":")[1].strip()) == "NONE" else val for i in file.readlines()]
     
 def format_currency(amount):
 
@@ -185,14 +202,25 @@ LIMIT_COVERAGE_CINS = format_currency(DATA[14]) # Format from 3000 -> $3,000.00
 TORTFEASOR = DATA[15]
 CLAIM_NUMBER_CINS = DATA[16]
 
-TORTFEASOR_UPPER = TORTFEASOR.upper() if TORTFEASOR else None
-TORTFEASOR_TITLE = TORTFEASOR.title() if TORTFEASOR else None
+# Wal-Mart Stores, Inc. (Facility No.: 3133) business premises located at: 1425 N. Hacienda Blvd., La Puente, CA 91744 
+LOCATION_NAME = DATA[17]
+LOCATION_NAME_SHORT = DATA[18]
+FACILITY_NUMBER = f"(Facility No.: {DATA[19]})" if DATA[19] else ""
+LOCATION_ADDRESS = DATA[20]
+FILE_NUMBER = DATA[21]
+
+COMPLETE_LOCATION_ADDRESS = (LOCATION_NAME.strip() + FACILITY_NUMBER.strip() + " " + LOCATION_ADDRESS.strip()) if LOCATION_NAME else ""
+COMPLETE_LOCATION_ADDRESS_UPPER = COMPLETE_LOCATION_ADDRESS.upper() if DATA[20] else ""
+COMPLETE_LOCATION_ADDRESS_TITLE = COMPLETE_LOCATION_ADDRESS.title() if DATA[20] else ""
+
+TORTFEASOR_UPPER = TORTFEASOR.upper() if TORTFEASOR else ""
+TORTFEASOR_TITLE = TORTFEASOR.title() if TORTFEASOR else ""
 
 INSURANCE_INIT_OPINS = OPINS.split(" ")[0]
 INSURANCE_NAME_CAP_OPINS = OPINS.upper()
 
-INSURANCE_INIT_CINS = CINS.split(" ")[0]
-INSURANCE_NAME_CAP_CINS = CINS.upper()
+INSURANCE_INIT_CINS = CINS.split(" ")[0] if CINS else ""
+INSURANCE_NAME_CAP_CINS = CINS.upper() if CINS else ""
 
 # Automatically set gender-specific variables based on CLIENT_SEX
 if CLIENT_SEX == "woman":
@@ -202,6 +230,7 @@ if CLIENT_SEX == "woman":
     HER_HIS_CLIENT_CAP = "HER"
     CLIENT_TITLE = "Ms. " if IS_YOUNG else "Mrs. "
     HE_SHE_CLIENT_PAGE7 = HE_SHE_CLIENT + " was" 
+    HERSELF_HIMSELF_CLIENT = "herself"
 
 elif CLIENT_SEX == "man":  # CLIENT_SEX == "man"
     HE_SHE_CLIENT = "he"
@@ -210,6 +239,7 @@ elif CLIENT_SEX == "man":  # CLIENT_SEX == "man"
     HER_HIS_CLIENT_CAP = "HIS"
     CLIENT_TITLE = "Mr. "
     HE_SHE_CLIENT_PAGE7 = HE_SHE_CLIENT + " was" 
+    HERSELF_HIMSELF_CLIENT = "himself"
 
 else:
     CLIENT_TITLE = []
@@ -229,6 +259,7 @@ else:
     HER_HIM_CLIENT = "them"
     HER_HIS_CLIENT = "their"
     HER_HIS_CLIENT_CAP = "THEIR"
+    HERSELF_HIMSELF_CLIENT = "themselves"
 
     # Custom
     HE_SHE_CLIENT_PAGE7 = HE_SHE_CLIENT + " were" 
@@ -249,7 +280,6 @@ else:
     HER_HIM_INSURED = "them"
     HER_HIS_INSURED = "their"
     
-
 
 # Format the date as MM/DD/YYYY
 SETTLEMENT_EXP_DATE = (datetime.now() + relativedelta(months=1)).strftime("%m/%d/%Y")
@@ -364,6 +394,8 @@ MR_MRS_INSURED_NAME_EACH_CAP = (INSURED_TITLE + INSURED_NAME_ALL_CAP).title()
 MR_OR_MRS_INSURED_NAME_ALL_CAP = MR_MRS_INSURED_NAME_EACH_CAP.upper()
 DATE_OF_LOSS_FORMATTED = datetime.strptime(DATE_OF_LOSS, "%m/%d/%Y").strftime("%B %d, %Y")
 
+DATE_OF_LOSS_FORMATTED_PREMISES = format_date_premises(DATE_OF_LOSS)
+
 if "," in CLIENT_SEX:
     if "man, man" == CLIENT_SEX:
         CLIENT_SEX = f"healthy men lose"
@@ -380,6 +412,8 @@ if "," in CLIENT_SEX:
         CLIENT_SEX = f"healthy men or women lose"
 else:
     CLIENT_SEX = f"a healthy {CLIENT_SEX} loses"
+
+
 
 # Store variables in a dictionary
 CLIENT_DATA = {
@@ -426,7 +460,23 @@ CLIENT_DATA = {
     "INSURANCE_NAME_CAP_CINS": INSURANCE_NAME_CAP_CINS,
     "TORTFEASOR_UPPER": TORTFEASOR_UPPER,
     "TORTFEASOR_TITLE": TORTFEASOR_TITLE,
-    "CLAIM_NUMBER_CINS": CLAIM_NUMBER_CINS
+    "CLAIM_NUMBER_CINS": CLAIM_NUMBER_CINS,
+    
+    # TEMPLATE PREMISES DATA
+    "DATE_OF_LOSS_FORMATTED_PREMISES": DATE_OF_LOSS_FORMATTED_PREMISES,
+    "HERSELF_HIMSELF_CLIENT": HERSELF_HIMSELF_CLIENT,
+
+    "LOCATION_NAME": LOCATION_NAME,
+    "LOCATION_NAME_CAP": LOCATION_NAME.upper(),
+    "LOCATION_NAME_SHORT": LOCATION_NAME_SHORT,
+    "FACILITY_NUMBER": FACILITY_NUMBER,
+    "LOCATION_ADDRESS":LOCATION_ADDRESS,
+
+    "COMPLETE_LOCATION_ADDRESS": COMPLETE_LOCATION_ADDRESS,
+    "COMPLETE_LOCATION_ADDRESS_UPPER": COMPLETE_LOCATION_ADDRESS_UPPER,
+    "COMPLETE_LOCATION_ADDRESS_TITLE": COMPLETE_LOCATION_ADDRESS_TITLE,
+    "FILE_NUMBER": FILE_NUMBER, 
+    # "ACCIDENT_DESCRIPTION":"waterproof pouch phone case that was left on the floor located in and around the vitamin aisle and customer service area of your insured’s premises. ",
 }
 
 
@@ -471,3 +521,4 @@ if __name__ == "__main__":
     draft_document(template_word_path_opins, "OPINS")
     draft_document(template_word_path_cins_a, "CINS A")
     draft_document(template_word_path_cins_b, "CINS B")
+    draft_document(template_word_path_premise, "Slip & Fall")

@@ -15,3 +15,8 @@ Policy Number (CINS): NONE
 CINS Limit Coverage: 3000
 Tortfeasor (DEF NAME): NONE
 Claim Number CINS: NONE
+Location Name: NONE
+Location Name Short: NONE
+Facility Number: NONE
+Location Address: NONE
+File Number: NONE
