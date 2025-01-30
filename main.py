@@ -211,7 +211,8 @@ FILE_NUMBER = DATA[21]
 
 COMPLETE_LOCATION_ADDRESS = (LOCATION_NAME.strip() + FACILITY_NUMBER.strip() + " " + LOCATION_ADDRESS.strip()) if LOCATION_NAME else ""
 COMPLETE_LOCATION_ADDRESS_UPPER = COMPLETE_LOCATION_ADDRESS.upper() if DATA[20] else ""
-COMPLETE_LOCATION_ADDRESS_TITLE = COMPLETE_LOCATION_ADDRESS.title() if DATA[20] else ""
+
+ACCIDENT_DESCRIPTION = DATA[22]
 
 TORTFEASOR_UPPER = TORTFEASOR.upper() if TORTFEASOR else ""
 TORTFEASOR_TITLE = TORTFEASOR.title() if TORTFEASOR else ""
@@ -474,11 +475,9 @@ CLIENT_DATA = {
 
     "COMPLETE_LOCATION_ADDRESS": COMPLETE_LOCATION_ADDRESS,
     "COMPLETE_LOCATION_ADDRESS_UPPER": COMPLETE_LOCATION_ADDRESS_UPPER,
-    "COMPLETE_LOCATION_ADDRESS_TITLE": COMPLETE_LOCATION_ADDRESS_TITLE,
     "FILE_NUMBER": FILE_NUMBER, 
-    # "ACCIDENT_DESCRIPTION":"waterproof pouch phone case that was left on the floor located in and around the vitamin aisle and customer service area of your insured’s premises. ",
+    "ACCIDENT_DESCRIPTION": ACCIDENT_DESCRIPTION,
 }
-
 
 def edit_docx_preserve_format(doc):
     """
@@ -521,4 +520,4 @@ if __name__ == "__main__":
     draft_document(template_word_path_opins, "OPINS")
     draft_document(template_word_path_cins_a, "CINS A")
     draft_document(template_word_path_cins_b, "CINS B")
-    draft_document(template_word_path_premise, "Slip & Fall")
+    draft_document(template_word_path_premise, "SLIP & FALL")
