@@ -166,9 +166,9 @@ def format_currency(amount):
         # Ensure the input is a float
         amount = float(amount)
         return "${:,.2f}".format(amount)
-    except ValueError:
+    except Exception:
         # Handle the case where the input is not a number
-        raise ValueError(f"Invalid input for currency formatting: {amount}")
+        return "[TBD]"
     
 ensure_file_exists(file_template_data, file_template_source)
 DATA = parse_file_data()
@@ -177,12 +177,12 @@ DATA = parse_file_data()
 CLIENT_NAME = DATA[0]
 CLIENT_SEX = DATA[1]
 IS_YOUNG = DATA[2]
-IS_YOUNG = "young" if IS_YOUNG == "yes" else (IS_YOUNG if len(IS_YOUNG) > 1 else "")
+IS_YOUNG = "young" if IS_YOUNG == "yes" else (IS_YOUNG if len(IS_YOUNG) > 1 else "NONE")
 
 # Insured Information
 INSURED_NAME = DATA[3]
 INSURED_SEX = DATA[4]
-INSURED_TITLE = "Mr. " if INSURED_SEX.lower() == "man" else "Mrs. " if INSURED_SEX.lower() == "woman" else ""
+INSURED_TITLE = "Mr. " if INSURED_SEX.lower() == "man" else "Mrs. " if INSURED_SEX.lower() == "woman" else "NONE"
 
 # Contact and Claim Information
 VIA_TYPE_OPINS = DATA[5]
@@ -214,14 +214,14 @@ COMPLETE_LOCATION_ADDRESS_UPPER = COMPLETE_LOCATION_ADDRESS.upper() if DATA[20] 
 
 ACCIDENT_DESCRIPTION = DATA[22]
 
-TORTFEASOR_UPPER = TORTFEASOR.upper() if TORTFEASOR else ""
-TORTFEASOR_TITLE = TORTFEASOR.title() if TORTFEASOR else ""
+TORTFEASOR_UPPER = TORTFEASOR.upper() if TORTFEASOR else "NONE"
+TORTFEASOR_TITLE = TORTFEASOR.title() if TORTFEASOR else "NONE"
 
-INSURANCE_INIT_OPINS = OPINS.split(" ")[0]
-INSURANCE_NAME_CAP_OPINS = OPINS.upper()
+INSURANCE_INIT_OPINS = OPINS.split(" ")[0] if OPINS else "NONE"
+INSURANCE_NAME_CAP_OPINS = OPINS.upper() if OPINS else "NONE"
 
-INSURANCE_INIT_CINS = CINS.split(" ")[0] if CINS else ""
-INSURANCE_NAME_CAP_CINS = CINS.upper() if CINS else ""
+INSURANCE_INIT_CINS = CINS.split(" ")[0] if CINS else "NONE"
+INSURANCE_NAME_CAP_CINS = CINS.upper() if CINS else "NONE"
 
 # Automatically set gender-specific variables based on CLIENT_SEX
 if CLIENT_SEX == "woman":
@@ -468,7 +468,7 @@ CLIENT_DATA = {
     "HERSELF_HIMSELF_CLIENT": HERSELF_HIMSELF_CLIENT,
 
     "LOCATION_NAME": LOCATION_NAME,
-    "LOCATION_NAME_CAP": LOCATION_NAME.upper(),
+    "LOCATION_NAME_CAP": LOCATION_NAME.upper() if LOCATION_NAME else "NONE",
     "LOCATION_NAME_SHORT": LOCATION_NAME_SHORT,
     "FACILITY_NUMBER": FACILITY_NUMBER,
     "LOCATION_ADDRESS":LOCATION_ADDRESS,

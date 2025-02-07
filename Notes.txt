@@ -36,13 +36,33 @@ insurance_contacts = {
 	"Athens Administrators Insurance Services": "lossruns@athensadmin.com"
 	"Pronto Insurance Company": "",
 	"Berkshire Hathaway GUARD": "csr@guard.com",
-	"Aegis Security Insurance Company "claimsq@aegisfirst.com"
+	"Aegis Security Insurance Company "claimsq@aegisfirst.com",
+	"Old Republic General Insurance": "claims@orsiu.com",
+	"Bridger Insurance Company": "claims@bridgerins.com",
+	"Pronto Insurance Company": "pg.info@prontoinsurance.com"
 }
 
-I want a list of CVC codes that definitively apply to my client's case (The PC) based solely on the undisputed facts provided. Please exclude any codes that rely on assumptions, possibilities, or further investigation. Focus only on clear violations evident from the facts.
+I want a list of CVC codes that definitively apply to my client's case (The PC) that favors them against the DEF to win the case. Please exclude any codes that rely on assumptions, possibilities, or further investigation. Focus only on clear violations evident from the facts.
+
+Please condense the following list of radiology findings so that each item only states the diagnosis in a concise format.
+
 
 Unknow Defendant Driver
 
+***************************************************************************************************
+******************************************** PROMPTS SLIP & FALL **********************************
+***************************************************************************************************
+
+please use this structure "Mr. Rodriguez, medical providers recommended an MRI of his of the Lumbar Spine due to the pain and discomfort he was experiencing. The MRI findings discovered Mr. Rodriguez had a posterior and right paracentral herniation, with slight superior migration and annular tear. The MRI findings discovered he had 2mm disc bulge." to form a paragraph mentioning max 2 findings per paragraph, meaning if there are 5 different findings, should be 3 paragrphs in total of the provided below MRI text.
+
+
+
+please use this structure "Due to the pain and discomfort Mr. Rodriguez was experiencing as a result of the subject incident and along with his MRI findings, her medical providers recommended and administered epidural injections. This helped alleviate some of Mr. Rodriguez’s pain and discomfort. " to form a paragraph mentioning max 1 injection per paragraph of the provided below MRI text. Without mentioning the cost per injection.
+
+
+please use this structure "Mr. Rodriguez was also seen by a neurologist Dr. Benjamin Gross, who concluded Mr. Rodriguez had an abnormal nerve conduction velocity study of the bilateral upper extremities characterized by focal right carpal tunnel syndrome." to form a paragraph the provided below text. 
+
+***************************************************************************************************
 ***************************************************************************************************
 
 Completed Demand Letter for Review: 
@@ -78,63 +98,3 @@ Should you have any questions and/or would like to discuss further, please don�
 
 
 ********************************************************************************************************************
-
-
-
-
-
-
-
-
-CLIENT_NAME
-CLIENT_SEX
-IS_YOUNG
-INSURED_NAME
-INSURED_SEX
-INSURED_TITLE
-HER_HIS_INSURED
-HE_SHE_INSURED
-VIA_TYPE_OPINS
-OPINS
-CLAIM_NUMBER_OPINS
-DATE_OF_LOSS
-DATE_OF_LOSS_FORMATTED
-CLAIM_RESPONSIBLE_RECEIVER
-CALIFORNIA_CVC_TEXT
-INSURANCE_INIT_OPINS
-HE_SHE_CLIENT
-HE_SHE_CLIENT_PAGE7
-HER_HIM_CLIENT
-HER_HIS_CLIENT
-HER_HIS_CLIENT_CAP
-MR_MRS_CLIENT_NAME_EACH_CAP
-MR_MRS_CLIENT_NAME_ALL_CAP
-SETTLEMENT_EXP_DATE
-SETTLEMENT_EXP_DATE_TITLE
-CLIENT_NAME_ALL_CAP
-CLIENT_NAME_EACH_CAP
-MR_MRS_CLIENT_LAST_NAME
-INSURED_NAME_ALL_CAP
-INSURED_NAME_EACH_CAP
-MR_MRS_INSURED_NAME_EACH_CAP
-MR_OR_MRS_INSURED_NAME_ALL_CAP
-INSURANCE_NAME_CAP_OPINS
-POLICY_NUMBER
-LIMIT_COVERAGE_CINS
-VIA_TYPE_CINS
-CINS
-INSURANCE_INIT_CINS
-INSURANCE_NAME_CAP_CINS
-TORTFEASOR_UPPER
-TORTFEASOR_TITLE
-CLAIM_NUMBER_CINS
-
-
-
-
-FILE_NUMBER
-ACCIDENT_LOCATION
-ACCIDENT_DESCRIPTION = "waterproof pouch phone case that was left on the floor located in and around the vitamin aisle and customer service area of your insured’s premises. "
-
-
-
