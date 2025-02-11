@@ -53,9 +53,10 @@ Unknow Defendant Driver
 ******************************************** PROMPTS SLIP & FALL **********************************
 ***************************************************************************************************
 
+please use this structure "As will be described in greater detail below, this action arises from serious injuries suffered by our client, Ms. Carmen Armienta (hereinafter “Ms. Armienta”) after she slipped and fell on a waterproof pouch phone case that was left on the floor located in and around the vitamin aisle and customer service area of your insured’s premises." to form a paragraph using the facts given below just to mention how the accident occured the same way how is detailed above for this new client.
+
+
 please use this structure "Mr. Rodriguez, medical providers recommended an MRI of his of the Lumbar Spine due to the pain and discomfort he was experiencing. The MRI findings discovered Mr. Rodriguez had a posterior and right paracentral herniation, with slight superior migration and annular tear. The MRI findings discovered he had 2mm disc bulge." to form a paragraph mentioning max 2 findings per paragraph, meaning if there are 5 different findings, should be 3 paragrphs in total of the provided below MRI text.
-
-
 
 please use this structure "Due to the pain and discomfort Mr. Rodriguez was experiencing as a result of the subject incident and along with his MRI findings, her medical providers recommended and administered epidural injections. This helped alleviate some of Mr. Rodriguez’s pain and discomfort. " to form a paragraph mentioning max 1 injection per paragraph of the provided below MRI text. Without mentioning the cost per injection.
 
