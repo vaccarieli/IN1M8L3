@@ -34,8 +34,8 @@ w9_file_source = working_directory / "W-9 (2025).pdf"
 exhibit_file = project_path / "Exhibit 1-8.pdf"
 exhibit_file_source = working_directory / "Exhibit 1-8.pdf"
 
-w9_file_docx = project_path / "W-9 (2025).docx"
-w9_file_source_docx = working_directory / "W-9 (2025).docx"
+exhibit_file_docx = project_path / "Exhibit 1-8.docx"
+exhibit_file_source_docx = working_directory / "Exhibit 1-8.docx"
 
 def format_date_premises(date_str):
     # Parse the date
@@ -181,7 +181,7 @@ def format_currency(amount):
     
 ensure_file_exists(file_template_data, file_template_source)
 ensure_file_exists(w9_file, w9_file_source)
-ensure_file_exists(w9_file_docx, w9_file_source_docx)
+ensure_file_exists(exhibit_file_docx, exhibit_file_source_docx)
 ensure_file_exists(exhibit_file, exhibit_file_source)
 
 DATA = parse_file_data()
