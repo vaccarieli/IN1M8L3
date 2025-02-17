@@ -27,6 +27,13 @@ template_word_path_premise = project_path / "Slip & Fall Template Demand.docx"
 file_template_data = project_path / "template info - SHORT - Individual.txt"
 file_template_source = working_directory / (working_directory.name + ".txt")
 
+# W9 & Exhibit
+w9_file = project_path / "W-9 (2025).pdf"
+w9_file_source = working_directory / "W-9 (2025).pdf"
+
+exhibit_file = project_path / "Exhibit 1-8.pdf"
+exhibit_file_source = working_directory / "Exhibit 1-8.pdf"
+
 
 def format_date_premises(date_str):
     # Parse the date
@@ -171,6 +178,9 @@ def format_currency(amount):
         return "[TBD]"
     
 ensure_file_exists(file_template_data, file_template_source)
+ensure_file_exists(w9_file, w9_file_source)
+ensure_file_exists(exhibit_file, exhibit_file_source)
+
 DATA = parse_file_data()
 
 # Client Information

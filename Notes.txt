@@ -35,7 +35,7 @@ insurance_contacts = {
 	"Fred Loya Casualty Insurance":"customerservice@fredloya.com",
 	"Athens Administrators Insurance Services": "lossruns@athensadmin.com"
 	"Pronto Insurance Company": "",
-	"Berkshire Hathaway GUARD": "csr@guard.com",
+	"AmGuard Insurance Company": "csr@guard.com",
 	"Aegis Security Insurance Company "claimsq@aegisfirst.com",
 	"Old Republic General Insurance": "claims@orsiu.com",
 	"Bridger Insurance Company": "claims@bridgerins.com",
