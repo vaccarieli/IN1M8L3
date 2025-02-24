@@ -42,28 +42,12 @@ insurance_contacts = {
 	"Pronto Insurance Company": "pg.info@prontoinsurance.com"
 }
 
-I want a list of CVC codes that definitively apply to my client's case (The PC) that favors them against the DEF to win the case. Please exclude any codes that rely on assumptions, possibilities, or further investigation. Focus only on clear violations evident from the facts.
+I want a list of CVC codes that definitively apply to my client's case (The PC) that favors them against the DEF to win the case. Please exclude any codes that rely on assumptions, possibilities, or further investigation. Focus only on clear violations evident from the facts. Include Key Strategy for the CVC and why they are relevant for the case against the DEF.
 
 Please condense the following list of radiology findings so that each item only states the diagnosis in a concise format.
 
-
 Unknow Defendant Driver
 
-***************************************************************************************************
-******************************************** PROMPTS SLIP & FALL **********************************
-***************************************************************************************************
-
-please use this structure "As will be described in greater detail below, this action arises from serious injuries suffered by our client, Ms. Carmen Armienta (hereinafter “Ms. Armienta”) after she slipped and fell on a waterproof pouch phone case that was left on the floor located in and around the vitamin aisle and customer service area of your insured’s premises." to form a paragraph using the facts given below just to mention how the accident occured the same way how is detailed above for this new client.
-
-
-please use this structure "Mr. Rodriguez, medical providers recommended an MRI of his of the Lumbar Spine due to the pain and discomfort he was experiencing. The MRI findings discovered Mr. Rodriguez had a posterior and right paracentral herniation, with slight superior migration and annular tear. The MRI findings discovered he had 2mm disc bulge." to form a paragraph mentioning max 2 findings per paragraph, meaning if there are 5 different findings, should be 3 paragrphs in total of the provided below MRI text.
-
-please use this structure "Due to the pain and discomfort Mr. Rodriguez was experiencing as a result of the subject incident and along with his MRI findings, her medical providers recommended and administered epidural injections. This helped alleviate some of Mr. Rodriguez’s pain and discomfort. " to form a paragraph mentioning max 1 injection per paragraph of the provided below MRI text. Without mentioning the cost per injection.
-
-
-please use this structure "Mr. Rodriguez was also seen by a neurologist Dr. Benjamin Gross, who concluded Mr. Rodriguez had an abnormal nerve conduction velocity study of the bilateral upper extremities characterized by focal right carpal tunnel syndrome." to form a paragraph the provided below text. 
-
-***************************************************************************************************
 ***************************************************************************************************
 
 Completed Demand Letter for Review: 
@@ -82,7 +66,6 @@ Any feedback on how to improve would be greatly appreciated.
 ************************************************** EMAIL TEMPLATE **********************************************************
 
 
-
 Dear Claim Team & All AAA Interinsurance Exchange of the Automobile Club Decision Makers:
 
 
@@ -99,3 +82,143 @@ Should you have any questions and/or would like to discuss further, please don�
 
 
 ********************************************************************************************************************
+
+############################################################### Beginning of Document ###############################################################
+
+I will initiate a chat with this information to automatically let you know to generate the complete paragrapg "Retain the below FACTS as the sole truth of the case. When I share two paragraphs:
+
+First: A complete sample paragraph.
+
+Second: A structurally identical paragraph with blanks (____) replacing key facts.
+Fill the blanks only with verbatim or contextually identical details from the FACTS, mirroring the first paragraph’s structure. Do not add, omit, or explain. Deliver only the filled paragraph.
+
+FACTS="The plaintiff (PC), who is three months pregnant and was carrying her six-month-old child in a car seat, fell backward while exiting her apartment complex when the staircase's cement crumbled beneath her feet. Despite holding the handrail, she released it to break her fall, landing on her right hand and back, resulting in significant pain and a suspected fracture. She promptly notified the leasing office via email about the hazardous condition and sought emergency care at Kaiser, where she was evaluated, given a wrist brace for her injured right hand, and assessed for back pain. PC is awaiting further confirmation on potential fractures while managing injuries sustained from the incident."
+
+**************************************************** 1 ****************************************************************
+
+First Paragraph:
+
+"As will be described in greater detail below, this action arises from serious injuries suffered by our client, Ms. Britnae Jacobs (hereinafter “Ms. Jacobs”) after she slipped and fell on a waterproof pouch phone case that was left on the floor located in and around the vitamin aisle and customer service area of your insured’s premises."
+
+Second Paragraph:
+
+"As will be described in greater detail below, this action arises from serious injuries suffered by our client, Ms. Britnae Jacobs (hereinafter “Ms. Jacobs”) after she slipped and fell on ____________________________________________________________________________________________________."
+
+***************************************************** 2 ***************************************************************
+
+**** (A screenshot of the email sent is attached herein and marked as Exhibit “1”). ****
+ 
+First Paragraph:
+
+"More specifically, our client was a patron at your insured’s business premises establishment and was walking around the vitamin aisle and customer service area, when suddenly and without warning, slipped on a waterproof pouch phone case that was left on the floor. Ms. Jacobs attempted to prevent her fall by grabbing onto another patron’s shopping cart with her right hand but could not hold and violently fell to the ground. Immediately after the fall Ms. Jacobs felt severe pain in her left side of her body and her right knee. The patron, Ms. Lupe De la Mora, whose cart Ms. Jacobs attempted to grab in order to prevent her fall, witnessed the events transpire and wrote a witness statement."
+
+Second Paragraph:
+
+"More specifically, our client was a patron at your insured’s business premises establishment and was walking around __________________________________, when suddenly and without warning, slipped __________________________________. Ms. Jacobs attempted to prevent ______________________________________________________________________________________________________. Immediately after the fall Ms. Jacobs felt severe pain in __________________________________. ______________________________________________________________________________________________________."
+
+***************************************************** 3 ***************************************************************
+
+First Paragraph:
+
+"Following her fall, Ms. Jacobs did not request an ambulance, However, her injuries, pain and discomfort were so excruciating that she had to call her daughter to take her to the hospital emergency room. At the hospital emergency room Ms. Jacobs was provided with x-rays of her right knee and lower back. She was also provided with medication and advised to return as needed. "
+
+Second Paragraph:
+
+"
+Following her fall, Ms. Jacobs did not request an ambulance, However, her injuries, pain and discomfort were so excruciating that _______________________________________________. ______________________________________________________________________________________________. _______________________________________________.  "
+
+***************************************************** 4 ***************************************************************
+
+First Paragraph:
+
+"Your insured could have foreseen that a hazardous condition such as a waterproof pouch phone case on the floor where there is significantly heavy foot traffic can cause a patron to slip and injure themselves. By making a reasonable investigation, taking thought, and exercising reasonable care to maintain the premises, your insured could have foreseen that a waterproof pouch phone case on the floor created a hazardous condition on floor would cause an injury to patrons. Furthermore, your insured could have easily avoided injury to patron upon the business in several ways by at the very least maintaining the floor of the premises free of hazardous conditions that may cause injuries to patrons in or around the subject premises. As such, your insured’s liability in this matter is clear."
+
+Second Paragraph:
+
+"Your insured could have foreseen that a hazardous condition such as _____________________________ where there is significantly heavy foot traffic can cause a patron to slip and injure themselves. By making a reasonable investigation, taking thought, and exercising reasonable care to maintain the premises, your insured could have foreseen that _____________________________ created a hazardous condition on floor would cause an injury to patrons. Furthermore, your insured could have easily avoided injury to patron upon the business in several ways by at the very least maintaining the floor of the premises free of hazardous conditions that may cause injuries to patrons in or around the subject premises. As such, your insured’s liability in this matter is clear."
+
+***************************************************** 5 ***************************************************************
+
+First Paragraph:
+
+"Here, your insured had an affirmative duty to take reasonable steps to ensure that its Business Premises (specifically the area in and around the vitamin aisle and customer service area of your insured’s premises) were maintained in a reasonably safe manner. As mentioned above, your insured employees, whom were responsible for the general maintenance of the premises, had knowledge or should have had knowledge of the hazardous condition where this incident occurred and our client was injured for a significant period of time, and perhaps much longer, before Ms. Jacobs slipped and fell and was severely injured."
+
+Second Paragraph:
+
+"Here, your insured had an affirmative duty to take reasonable steps to ensure that its Business Premises (specifically the area in and around _________________________________________________) were maintained in a reasonably safe manner. As mentioned above, your insured employees, whom were responsible for the general maintenance of the premises, had knowledge or should have had knowledge of the hazardous condition where this incident occurred and our client was injured for a significant period of time, and perhaps much longer, before Ms. Jacobs slipped and fell and was severely injured."
+
+
+***************************************************** 6 ***************************************************************
+
+(a copy of the witness statement is attached herein and marked as Exhibit “1”).
+
+First Paragraph:
+
+"No issue of liability surfaces here. On or about February 07, 2024, our client was a patron at your insured’s business premises establishment when our client was walking towards the pharmacy around the around the vitamin aisle and customer service area, when suddenly and without warning, slipped on a waterproof pouch phone case that was left on the floor. Ms. Jacobs attempted to prevent her fall by grabbing onto another patron’s shopping cart with her right hand but could not hold and violently fell to the ground. Immediately after the fall Ms. Jacobs felt severe pain in her left side of her body and her right knee. The patron, Ms. Lupe De la Mora, whose cart Ms. Jacobs attempted to grab in order to prevent her fall, witnessed the events transpire and wrote a witness statement."
+
+Second Paragraph:
+
+"No issue of liability surfaces here. On or about February 07, 2024, our client was a patron at your insured’s business premises establishment when our client was _________________________________________, when suddenly and without warning, slipped on a _________________________________________. Ms. Jacobs attempted to prevent her fall by _____________________________________________________________________. Immediately after the fall Ms. Jacobs felt severe pain in ____________________________________. __________________________________________________________________."
+
+***************************************************** 7 ***************************************************************
+
+First Paragraph:
+
+"Your insured could have foreseen that a hazardous condition such as a waterproof pouch phone case on the floor where there is significantly heavy foot traffic can cause a patron to slip and injure themselves. By making a reasonable investigation, taking thought, and exercising reasonable care to maintain the premises, your insured could have foreseen that a hazardous condition on its floor would cause a hazard to patrons. Your insured could have easily avoided injury to patrons entering upon or exiting the subject business premises sections in several ways by making proper routine checks."
+
+Second Paragraph:
+
+"Your insured could have foreseen that a hazardous condition such as ______________________________ where there is significantly heavy foot traffic can cause a patron to slip and injure themselves. By making a reasonable investigation, taking thought, and exercising reasonable care to maintain the premises, your insured could have foreseen that a hazardous condition on its floor would cause a hazard to patrons. Your insured could have easily avoided injury to patrons entering upon or exiting the subject business premises sections in several ways by making proper routine checks."
+
+
+***************************************************** 8 ***************************************************************
+
+First Paragraph:
+
+"Ms. Jacobs sat there a few minutes trying to regain her composure. When our client eventually was able to get up from the floor, she immediately felt the onset of pain throughout her body. Ms. Jacobs violent fall caused Ms. Jacobs to experience extreme pain throughout her body, specifically to her head, neck, lower back, and lower extremities, including her buttocks and her legs, right knee, and right hip and subsequent severe and frequent headaches. Our client felt swelling on the left and right side of her body and some numbness in her neck, arms, shoulders, chest, legs and feet. Ms. Jacobs immediately had a headache as well."
+
+Second Paragraph:
+
+"Ms. Jacobs sat there a few minutes trying to regain her composure. When our client eventually was able to get up from the floor, she immediately felt the onset of pain throughout her body. Ms. Jacobs violent fall caused Ms. Jacobs to experience extreme pain throughout her body, specifically to __________________________________________________________________. __________________________________________________________________. ________________________________."
+
+***************************************************** 9 ***************************************************************
+
+First Paragraph:
+
+"Following her fall, Ms. Jacobs did not request an ambulance, However, her injuries, pain and discomfort were so excruciating that she had to call her daughter to take her to the hospital emergency room. At the hospital emergency room Ms. Jacobs was provided with x-rays of her right knee and lower back. She was also provided with medication and advised to return as needed."
+
+Second Paragraph:
+
+"Following her fall, Ms. Jacobs did not request an ambulance, However, her injuries, pain and discomfort were so excruciating that _____________________________________. __________________________________________________. __________________________________________________."
+
+
+***************************************************** 10 ***************************************************************
+
+Convert medical findings into structured paragraphs with 2 findings per paragraph. Follow these rules:
+
+First Paragraph:
+
+Start with [Patient], medical providers recommended [imaging type][optional reason]. The [imaging] findings discovered [patient] had [Finding 1][and [Finding 2]].
+
+Subsequent Paragraphs:
+
+Begin with transitional phrases like ‘Additionally,’ ‘Further,’ or ‘The [imaging] also revealed’ to avoid repetition.
+
+Never repeat the patient’s name, imaging type, or reason.
+
+Rules:
+
+Use exact terminology from the input.
+
+Split findings into groups of 2 per paragraph.
+
+No explanations or deviations.
+
+Patient: Ms. Jacobs  
+Imaging: MRI of Right Wrist
+Reason: due to lower back pain  
+Findings:  
+1. Minimal synovial effusion in intercarpal, carpometacarpal, metacarpophalangeal and interphalangeal joints.
+2. Mild subcutaneous edema around the hand.
+
+******************************************************************************************************************************

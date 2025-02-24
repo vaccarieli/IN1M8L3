@@ -31,8 +31,7 @@ file_template_source = working_directory / (working_directory.name + ".txt")
 w9_file = project_path / "W-9 (2025).pdf"
 w9_file_source = working_directory / "W-9 (2025).pdf"
 
-exhibit_file = project_path / "Exhibit 1-8.pdf"
-exhibit_file_source = working_directory / "Exhibit 1-8.pdf"
+
 
 exhibit_file_docx = project_path / "Exhibit 1-8.docx"
 exhibit_file_source_docx = working_directory / "Exhibit 1-8.docx"
@@ -178,11 +177,9 @@ def format_currency(amount):
     except Exception:
         # Handle the case where the input is not a number
         return "[TBD]"
-    
-ensure_file_exists(file_template_data, file_template_source)
-ensure_file_exists(w9_file, w9_file_source)
-ensure_file_exists(exhibit_file_docx, exhibit_file_source_docx)
-ensure_file_exists(exhibit_file, exhibit_file_source)
+
+
+
 
 DATA = parse_file_data()
 
@@ -235,6 +232,13 @@ INSURANCE_NAME_CAP_OPINS = OPINS.upper() if OPINS else "NONE"
 
 INSURANCE_INIT_CINS = CINS.split(" ")[0] if CINS else "NONE"
 INSURANCE_NAME_CAP_CINS = CINS.upper() if CINS else "NONE"
+
+exhibit_file = project_path / f"Exhibit 1-8 ({CLIENT_NAME.title()}).pdf"
+exhibit_file_source = working_directory / f"Exhibit 1-8 ({CLIENT_NAME.title()}).pdf"
+    
+ensure_file_exists(file_template_data, file_template_source)
+ensure_file_exists(w9_file, w9_file_source)
+ensure_file_exists(exhibit_file, exhibit_file_source)
 
 # Automatically set gender-specific variables based on CLIENT_SEX
 if CLIENT_SEX == "woman":
