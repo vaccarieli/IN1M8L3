@@ -233,9 +233,9 @@ INSURANCE_NAME_CAP_OPINS = OPINS.upper() if OPINS else "NONE"
 INSURANCE_INIT_CINS = CINS.split(" ")[0] if CINS else "NONE"
 INSURANCE_NAME_CAP_CINS = CINS.upper() if CINS else "NONE"
 
-exhibit_file = project_path / f"Exhibit 1-8 ({CLIENT_NAME.title()}).pdf"
+exhibit_file = project_path / f"Exhibit 1-8.pdf"
 exhibit_file_source = working_directory / f"Exhibit 1-8 ({CLIENT_NAME.title()}).pdf"
-    
+
 ensure_file_exists(file_template_data, file_template_source)
 ensure_file_exists(w9_file, w9_file_source)
 ensure_file_exists(exhibit_file, exhibit_file_source)
