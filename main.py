@@ -31,8 +31,6 @@ file_template_source = working_directory / (working_directory.name + ".txt")
 w9_file = project_path / "W-9 (2025).pdf"
 w9_file_source = working_directory / "W-9 (2025).pdf"
 
-
-
 exhibit_file_docx = project_path / "Exhibit 1-8.docx"
 exhibit_file_source_docx = working_directory / "Exhibit 1-8.docx"
 
@@ -63,12 +61,10 @@ def ensure_file_exists(src, dst):
         shutil.copy(src, dst)
         print(f"File copied successfully from '{src}' to '{dst}'.")
     
-
 def check_and_warn_if_file_exists(file_path):
     if file_path.exists():
         return False
     return True
-
 
 def read_json_file(json_path):
     with open(json_path, "r", encoding="utf-8") as file:
@@ -158,18 +154,19 @@ def custom_title(text, excluded_words=None):
 
     # Create a set of excluded words for O(1) lookup time
     excluded_words_set = set(excluded_words)
-
     return " ".join(
         word if word.lower() in excluded_words_set else word.capitalize()
         for word in text.split()
     )
 
+ensure_file_exists(file_template_data, file_template_source)
+
 def parse_file_data():
+    print(file_template_source)
     with open(file_template_source, "r", encoding="utf-8") as file:
         return [None if (val := i.strip().split(":")[1].strip()) == "NONE" else val for i in file.readlines()]
     
 def format_currency(amount):
-
     try:
         # Ensure the input is a float
         amount = float(amount)
@@ -177,9 +174,6 @@ def format_currency(amount):
     except Exception:
         # Handle the case where the input is not a number
         return "[TBD]"
-
-
-
 
 DATA = parse_file_data()
 
@@ -209,10 +203,13 @@ CINS = DATA[12] #CINS NAME
 POLICY_NUMBER = DATA[13] # I.E 23768698269
 LIMIT_COVERAGE_CINS = format_currency(DATA[14]) # Format from 3000 -> $3,000.00 
 
-TORTFEASOR = DATA[15]
+TORTFEASOR = DATA[15] 
+if not TORTFEASOR:
+    print("TORTFEASOR MISSING!")
+    sys.exit(1)
+    
 CLAIM_NUMBER_CINS = DATA[16]
 
-# Wal-Mart Stores, Inc. (Facility No.: 3133) business premises located at: 1425 N. Hacienda Blvd., La Puente, CA 91744 
 LOCATION_NAME = DATA[17]
 LOCATION_NAME_SHORT = DATA[18]
 FACILITY_NUMBER = f"(Facility No.: {DATA[19]})" if DATA[19] else ""
@@ -236,7 +233,6 @@ INSURANCE_NAME_CAP_CINS = CINS.upper() if CINS else "NONE"
 exhibit_file = project_path / f"Exhibit 1-8.pdf"
 exhibit_file_source = working_directory / f"Exhibit 1-8 ({CLIENT_NAME.title()}).pdf"
 
-ensure_file_exists(file_template_data, file_template_source)
 ensure_file_exists(w9_file, w9_file_source)
 ensure_file_exists(exhibit_file, exhibit_file_source)
 
@@ -297,7 +293,6 @@ else:
     HE_SHE_INSURED = "they"
     HER_HIM_INSURED = "them"
     HER_HIS_INSURED = "their"
-    
 
 # Format the date as MM/DD/YYYY
 SETTLEMENT_EXP_DATE = (datetime.now() + relativedelta(months=1)).strftime("%m/%d/%Y")
@@ -430,8 +425,6 @@ if "," in CLIENT_SEX:
         CLIENT_SEX = f"healthy men or women lose"
 else:
     CLIENT_SEX = f"a healthy {CLIENT_SEX} loses"
-
-
 
 # Store variables in a dictionary
 CLIENT_DATA = {
