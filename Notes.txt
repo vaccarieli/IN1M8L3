@@ -1,43 +1,45 @@
 insurance_contacts = {
-    "MAPFRE Insurance Company": "claims@mapfreusa.com",
-    "CSAA Insurance Exchange": "myclaim@csaa.com",
-    "Farmers Insurance Company": "myclaim@farmersinsurance.com",
-    "State Farm Insurance Company": "statefarmclaims@statefarm.com",
-    "Allstate Insurance Company": "claims@allstate.com",
-    "Kemper Insurance Company": "mail.claims@kemper.com",
-    "Fred Loya Insurance Company": "attorneymail@fredloya.com",
-    "Nationwide Insurance Company": "nationwide-claims@nationwide.com",
-    "American Family Connect Insurance Company (AFICS)": "claimdocuments@afics.com",
-    "National General Insurance Company": "claims@nationalgeneral.com",
-    "Mercury Insurance Company": "claims@mercuryinsurance.com",
-    "Progressive Insurance Company": "claims@progressive.com",
-    "Liberty Mutual Insurance Company": "aldocs@libertymutual.com",
-    "GEICO General Insurance Company": "claims@geico.com",
     "AAA Interinsurance Exchange of the Automobile Club": "claimdocs@csaa.com",
-    "Aspire General Insurance Company": "claims@agicins.com",
-    "Federal Insurance Company (Chubb)": "cscfnol@chubb.com",
-    "Blue Fire Insurance Company": "claimsdocs@bluefireins.com",
-    "USAA Insurance Company": "claims@usaa.com",
-    "Wawanesa General Insurance Company": "claimsmail@wawanesa.com",
-    "Safeco Insurance Company of America": "safeco.claims@libertymutual.com",
-    "Hartford Fire Insurance Company": "newloss@thehartford.com",
-    "Esurance Insurance Company": "claims@esurance.com",
-    "Seaview Insurance Company": "asterett@svinsco.com",
-    "Loya Casualty Insurance Company": "customerservice@fredloya.com",
-    "Sedgwick Claims Management Services": "NoEmail",
-    "Biberk Insurance Company": "claims@biberk.com",
-    "Viking Insurance Company": "support@visvcs.com",
-    "Mobilitas Insurance Company": "claimdocs@mobilitasinsurance.com",
-    "Athens Administrators Insurance Services": "lossruns@athensadmin.com",
-    "Pronto Insurance Company": "pg.info@prontoinsurance.com",
-    "AmGuard Insurance Company": "claims@amguard.com",
     "Aegis Security Insurance Company": "claimsq@aegisfirst.com",
-    "Old Republic General Insurance": "claims@orsiu.com",
-    "Bridger Insurance Company": "claims@bridgerins.com",
+    "Allstate Insurance Company": "claims@allstate.com",
+    "American Family Connect Insurance Company (AFICS)": "claimdocuments@afics.com",
+    "AmGuard Insurance Company": "claims@amguard.com",
     "Anchor General Insurance": "claims@anchorgeneral.com",
-	"Onward Insurance Company": "",
-	"Tesla Insurance Company": "claims@teslainsuranceservices.com",
-	"Bristol West Insurance Company": "docs@bristolwest.com"
+    "Aspire General Insurance Company": "claims@agicins.com",
+    "Athens Administrators Insurance Services": "lossruns@athensadmin.com",
+    "Biberk Insurance Company": "claims@biberk.com",
+    "Blue Fire Insurance Company": "claimsdocs@bluefireins.com",
+    "Bridger Insurance Company": "claims@bridgerins.com",
+    "Bristol West Insurance Company": "docs@bristolwest.com",
+    "CSAA Insurance Exchange": "myclaim@csaa.com",
+    "Esurance Insurance Company": "claims@esurance.com",
+    "Farmers Insurance Company": "myclaim@farmersinsurance.com",
+    "Federal Insurance Company (Chubb)": "cscfnol@chubb.com",
+    "First Acceptance Insurance": "newclaims@firstacceptance.com",
+    "Fred Loya Insurance Company": "attorneymail@fredloya.com",
+    "GEICO General Insurance Company": "claims@geico.com",
+    "Hartford Fire Insurance Company": "newloss@thehartford.com",
+    "Kemper Insurance Company": "mail.claims@kemper.com",
+    "Liberty Mutual Insurance Company": "aldocs@libertymutual.com",
+    "Loya Casualty Insurance Company": "customerservice@fredloya.com",
+    "MAPFRE Insurance Company": "claims@mapfreusa.com",
+    "Mercury Insurance Company": "claims@mercuryinsurance.com",
+    "Mobilitas Insurance Company": "claimdocs@mobilitasinsurance.com",
+    "National General Insurance Company": "claims@nationalgeneral.com",
+    "Nationwide Insurance Company": "nationwide-claims@nationwide.com",
+    "Old Republic General Insurance": "claims@orsiu.com",
+    "Onward Insurance Company": "",
+    "Progressive Insurance Company": "claims@progressive.com",
+    "Pronto Insurance Company": "pg.info@prontoinsurance.com",
+    "Safeco Insurance Company of America": "safeco.claims@libertymutual.com",
+    "Seaview Insurance Company": "asterett@svinsco.com",
+    "Sedgwick Claims Management Services": "NoEmail",
+    "State Farm Insurance Company": "statefarmclaims@statefarm.com",
+    "Tesla Insurance Company": "claims@teslainsuranceservices.com",
+    "Travelers Insurance Company": "NoEmail",
+    "USAA Insurance Company": "claims@usaa.com",
+    "Viking Insurance Company": "support@visvcs.com",
+    "Wawanesa General Insurance Company": "claimsmail@wawanesa.com"
 }
 
 
@@ -84,14 +86,14 @@ Should you have any questions and/or would like to discuss further, please don�
 
 ############################################################### Beginning of Document ###############################################################
 
-I will initiate a chat with this information to automatically let you know to generate the complete paragrapg "Retain the below FACTS as the sole truth of the case. When I share two paragraphs:
+I will initiate a chat with this information to automatically let you know to generate the complete paragraph "Retain the below FACTS as the sole truth of the case. When I share two paragraphs:
 
 First: A complete sample paragraph.
 
 Second: A structurally identical paragraph with blanks (____) replacing key facts.
 Fill the blanks only with verbatim or contextually identical details from the FACTS, mirroring the first paragraph’s structure. Do not add, omit, or explain. Deliver only the filled paragraph.
 
-FACTS="The plaintiff (PC), who is three months pregnant and was carrying her six-month-old child in a car seat, fell backward while exiting her apartment complex when the staircase's cement crumbled beneath her feet. Despite holding the handrail, she released it to break her fall, landing on her right hand and back, resulting in significant pain and a suspected fracture. She promptly notified the leasing office via email about the hazardous condition and sought emergency care at Kaiser, where she was evaluated, given a wrist brace for her injured right hand, and assessed for back pain. PC is awaiting further confirmation on potential fractures while managing injuries sustained from the incident."
+FACTS="The plaintiff (PC), a 5’4”, 210-pound individual, slipped and fell on a puddle of chocolate milk in a store while walking to the paint aisle to buy paint. The spill, confirmed by an employee to be chocolate milk, was caused by a young boy carrying the drink through the store. PC landed on their left leg and left buttock, sustaining injuries to the left side of their body, including left breast pain, chest pain, left arm pain, neck pain, and left buttock pain. No caution signs were placed near the spill, and though employees cleaned the area and reported the incident to a manager (who filed a report but did not provide PC a copy), PC had not yet received treatment (NO TX YET) as of the report. PC holds Cigna health insurance and was referred to Apple Urgent Care for urgent evaluation. The absence of warnings and the unattended hazard, coupled with the documented injuries, underscore the incident’s severity."
 
 **************************************************** 1 ****************************************************************
 
